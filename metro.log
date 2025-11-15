@@ -1,0 +1,4008 @@
+Starting project at /Users/sainath/PycharmProjects/kilocode/kilocode/apps/kilo-remote
+Starting Metro Bundler
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+warning: Watchman `watch-project` returned a warning: Recrawled this watch 17 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+`watchman watch-del '/Users/sainath/PycharmProjects/kilocode/kilocode' ; watchman watch-project '/Users/sainath/PycharmProjects/kilocode/kilocode'`
+
+warning: Watchman `query` returned a warning: Recrawled this watch 17 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+`watchman watch-del '/Users/sainath/PycharmProjects/kilocode/kilocode' ; watchman watch-project '/Users/sainath/PycharmProjects/kilocode/kilocode'`
+
+Recrawled this watch 17 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+`watchman watch-del '/Users/sainath/PycharmProjects/kilocode/kilocode' ; watchman watch-project '/Users/sainath/PycharmProjects/kilocode/kilocode'`
+
+iOS Bundled 3508ms (node_modules/expo/AppEntry.js)
+ ERROR  Warning: Failed prop type: Invalid props.style key `outlineStyle` supplied to `TextInput`.
+Bad object: {
+  "borderWidth": 0,
+  "padding": 8,
+  "minHeight": 48,
+  "maxHeight": 120,
+  "textAlignVertical": "top",
+  "color": "#FFFFFF",
+  "fontFamily": "JetBrainsMono-Regular",
+  "fontSize": 13,
+  "lineHeight": 18,
+  "outlineStyle": "none"
+}
+Valid keys: [
+  "alignContent",
+  "alignItems",
+  "alignSelf",
+  "aspectRatio",
+  "borderBottomWidth",
+  "borderEndWidth",
+  "borderLeftWidth",
+  "borderRightWidth",
+  "borderStartWidth",
+  "borderTopWidth",
+  "borderWidth",
+  "bottom",
+  "columnGap",
+  "direction",
+  "display",
+  "end",
+  "flex",
+  "flexBasis",
+  "flexDirection",
+  "flexGrow",
+  "flexShrink",
+  "flexWrap",
+  "gap",
+  "height",
+  "inset",
+  "insetBlock",
+  "insetBlockEnd",
+  "insetBlockStart",
+  "insetInline",
+  "insetInlineEnd",
+  "insetInlineStart",
+  "justifyContent",
+  "left",
+  "margin",
+  "marginBlock",
+  "marginBlockEnd",
+  "marginBlockStart",
+  "marginBottom",
+  "marginEnd",
+  "marginHorizontal",
+  "marginInline",
+  "marginInlineEnd",
+  "marginInlineStart",
+  "marginLeft",
+  "marginRight",
+  "marginStart",
+  "marginTop",
+  "marginVertical",
+  "maxHeight",
+  "maxWidth",
+  "minHeight",
+  "minWidth",
+  "overflow",
+  "padding",
+  "paddingBlock",
+  "paddingBlockEnd",
+  "paddingBlockStart",
+  "paddingBottom",
+  "paddingEnd",
+  "paddingHorizontal",
+  "paddingInline",
+  "paddingInlineEnd",
+  "paddingInlineStart",
+  "paddingLeft",
+  "paddingRight",
+  "paddingStart",
+  "paddingTop",
+  "paddingVertical",
+  "position",
+  "right",
+  "rowGap",
+  "start",
+  "top",
+  "width",
+  "zIndex",
+  "shadowColor",
+  "shadowOffset",
+  "shadowOpacity",
+  "shadowRadius",
+  "transform",
+  "backfaceVisibility",
+  "backgroundColor",
+  "borderBottomColor",
+  "borderBottomEndRadius",
+  "borderBottomLeftRadius",
+  "borderBottomRightRadius",
+  "borderBottomStartRadius",
+  "borderColor",
+  "borderCurve",
+  "borderEndColor",
+  "borderEndEndRadius",
+  "borderEndStartRadius",
+  "borderLeftColor",
+  "borderRadius",
+  "borderRightColor",
+  "borderStartColor",
+  "borderStartEndRadius",
+  "borderStartStartRadius",
+  "borderStyle",
+  "borderTopColor",
+  "borderTopEndRadius",
+  "borderTopLeftRadius",
+  "borderTopRightRadius",
+  "borderTopStartRadius",
+  "elevation",
+  "opacity",
+  "pointerEvents",
+  "color",
+  "fontFamily",
+  "fontSize",
+  "fontStyle",
+  "fontVariant",
+  "fontWeight",
+  "includeFontPadding",
+  "letterSpacing",
+  "lineHeight",
+  "textAlign",
+  "textAlignVertical",
+  "textDecorationColor",
+  "textDecorationLine",
+  "textDecorationStyle",
+  "textShadowColor",
+  "textShadowOffset",
+  "textShadowRadius",
+  "textTransform",
+  "userSelect",
+  "verticalAlign",
+  "writingDirection"
+]
+    at TextInput (http://192.168.1.73:8081/node_modules/expo/AppEntry.bundle//&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=false&runModule=true&app=com.aet.kilo-canvas&transform.routerRoot=app&transform.engine=hermes&transform.bytecode=true:128787:38)
+    in ChatInput (at ChatView.js:182)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:181)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67)
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  HeaderTitle rendered
+ LOG  handle Send
+ LOG  Hi
+ WARN  (ADVICE) View #425 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE connection opened.
+ LOG  onTaskId callback received taskId: a93d74bb-1446-4573-a404-e1c8911b44e9
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #473 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #473 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #473 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"updateTodoList","todo
+ WARN  (ADVICE) View #545 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"newFileCreated","path
+ WARN  (ADVICE) View #599 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #629 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"readFile","path":"src
+ WARN  (ADVICE) View #659 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #545 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  I've reviewed the code. The co
+ WARN  (ADVICE) View #725 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ WARN  (ADVICE) View #873 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  npm install date-fns
+ WARN  (ADVICE) View #899 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  added 1 package, and audited 5
+ WARN  (ADVICE) View #963 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Failed to apply diff: The file
+ WARN  (ADVICE) View #1005 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #1037 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ WARN  (ADVICE) View #1179 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  This is a Kilo said message.
+ WARN  (ADVICE) View #1213 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"switchMode","mode":"c
+ LOG  
+ WARN  (ADVICE) View #3309 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ WARN  (ADVICE) View #3365 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE stream finished.
+ LOG  Hi
+ LOG  Okay, I understand the task. T
+ LOG  {"tool":"updateTodoList","todo
+ LOG  {"tool":"newFileCreated","path
+ LOG  {"tool":"appliedDiff","path":"
+ LOG  {"tool":"readFile","path":"src
+ LOG  I've reviewed the code. The co
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ LOG  npm install date-fns
+ LOG  added 1 package, and audited 5
+ LOG  Failed to apply diff: The file
+ LOG  {"tool":"appliedDiff","path":"
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ LOG  This is a Kilo said message.
+ LOG  {"tool":"switchMode","mode":"c
+ LOG  
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  handle Send
+ LOG  Hi
+ WARN  (ADVICE) View #3883 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE connection opened.
+ LOG  onTaskId callback received taskId: e0438e5b-92eb-49d9-b70c-a22dea3f803b
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #3929 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #3929 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #3929 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"updateTodoList","todo
+ WARN  (ADVICE) View #4005 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"newFileCreated","path
+ WARN  (ADVICE) View #4063 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #4093 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"readFile","path":"src
+ WARN  (ADVICE) View #4123 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  I've reviewed the code. The co
+ WARN  (ADVICE) View #4183 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ WARN  (ADVICE) View #4329 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  npm install date-fns
+ WARN  (ADVICE) View #4357 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  added 1 package, and audited 5
+ LOG  Failed to apply diff: The file
+ WARN  (ADVICE) View #4419 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #4463 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #4495 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ WARN  (ADVICE) View #4637 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  This is a Kilo said message.
+ WARN  (ADVICE) View #4669 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"switchMode","mode":"c
+ WARN  (ADVICE) View #6767 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ WARN  (ADVICE) View #6825 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE stream finished.
+ LOG  HeaderTitle rendered
+ WARN  (ADVICE) View #6825 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  HeaderTitle rendered
+ WARN  (ADVICE) View #6825 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  HeaderTitle rendered
+ WARN  (ADVICE) View #4329 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  HeaderTitle rendered
+ WARN  (ADVICE) View #4329 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #4005 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #4005 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Hi
+ LOG  Okay, I understand the task. T
+ LOG  {"tool":"updateTodoList","todo
+ LOG  {"tool":"newFileCreated","path
+ LOG  {"tool":"appliedDiff","path":"
+ LOG  {"tool":"readFile","path":"src
+ LOG  I've reviewed the code. The co
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ LOG  npm install date-fns
+ LOG  added 1 package, and audited 5
+ LOG  Failed to apply diff: The file
+ LOG  {"tool":"appliedDiff","path":"
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ LOG  This is a Kilo said message.
+ LOG  {"tool":"switchMode","mode":"c
+ LOG  
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  handle Send
+ LOG  Hi
+ WARN  (ADVICE) View #9133 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE connection opened.
+ LOG  onTaskId callback received taskId: af2f142a-7db0-4044-bae5-ba873b91905f
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #9179 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #9179 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #9179 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"updateTodoList","todo
+ WARN  (ADVICE) View #9255 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"newFileCreated","path
+ WARN  (ADVICE) View #9313 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #9343 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"readFile","path":"src
+ WARN  (ADVICE) View #9373 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  I've reviewed the code. The co
+ WARN  (ADVICE) View #9433 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ WARN  (ADVICE) View #9579 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  npm install date-fns
+ WARN  (ADVICE) View #9607 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  added 1 package, and audited 5
+ WARN  (ADVICE) View #9669 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Failed to apply diff: The file
+ WARN  (ADVICE) View #9713 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #9745 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ WARN  (ADVICE) View #9887 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  This is a Kilo said message.
+ WARN  (ADVICE) View #9919 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"switchMode","mode":"c
+ LOG  
+ WARN  (ADVICE) View #12017 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ WARN  (ADVICE) View #12073 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE stream finished.
+ LOG  Hi
+ LOG  Okay, I understand the task. T
+ LOG  {"tool":"updateTodoList","todo
+ LOG  {"tool":"newFileCreated","path
+ LOG  {"tool":"appliedDiff","path":"
+ LOG  {"tool":"readFile","path":"src
+ LOG  I've reviewed the code. The co
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ LOG  npm install date-fns
+ LOG  added 1 package, and audited 5
+ LOG  Failed to apply diff: The file
+ LOG  {"tool":"appliedDiff","path":"
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ LOG  This is a Kilo said message.
+ LOG  {"tool":"switchMode","mode":"c
+ LOG  
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  handle Send
+ LOG  Hi
+ WARN  (ADVICE) View #14715 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE connection opened.
+ LOG  onTaskId callback received taskId: 71565acc-fd19-4d82-89af-57c04d847a09
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #14763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #14763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #14763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"updateTodoList","todo
+ WARN  (ADVICE) View #14837 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"newFileCreated","path
+ WARN  (ADVICE) View #14895 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #14925 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"readFile","path":"src
+ WARN  (ADVICE) View #14955 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  I've reviewed the code. The co
+ WARN  (ADVICE) View #15015 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ WARN  (ADVICE) View #15163 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  npm install date-fns
+ WARN  (ADVICE) View #15189 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  added 1 package, and audited 5
+ WARN  (ADVICE) View #15253 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Failed to apply diff: The file
+ WARN  (ADVICE) View #15295 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #15327 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ WARN  (ADVICE) View #15469 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  This is a Kilo said message.
+ WARN  (ADVICE) View #15503 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"switchMode","mode":"c
+ WARN  (ADVICE) View #15539 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ WARN  (ADVICE) View #15597 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE stream finished.
+error: SyntaxError: /Users/sainath/PycharmProjects/kilocode/kilocode/apps/kilo-remote/src/components/messages/MessageCard.js: Expected corresponding JSX closing tag for <LinearGradient>. (57:6)
+
+  55 |           {children}
+  56 |         </View>
+> 57 |       </BlurView>
+     |       ^
+  58 |     </LinearGradient>
+  59 |   )
+  60 | }
+ ERROR  [Error: TransformError SyntaxError: /Users/sainath/PycharmProjects/kilocode/kilocode/apps/kilo-remote/src/components/messages/MessageCard.js: Expected corresponding JSX closing tag for <LinearGradient>. (57:6)
+
+[0m [90m 55 |[39m           {children}
+ [90m 56 |[39m         [33m<[39m[33m/[39m[33mView[39m[33m>[39m
+[31m[1m>[22m[39m[90m 57 |[39m       [33m<[39m[33m/[39m[33mBlurView[39m[33m>[39m
+ [90m    |[39m       [31m[1m^[22m[39m
+ [90m 58 |[39m     [33m<[39m[33m/[39m[33mLinearGradient[39m[33m>[39m
+ [90m 59 |[39m   )
+ [90m 60 |[39m }[0m]
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:23)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:23)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at TodoListMessage.js:44)
+    in TodoListMessage (at ChatRow.js:68)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at FileOperationMessage.js:61)
+    in FileOperationMessage (at ChatRow.js:71)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at FileOperationMessage.js:61)
+    in FileOperationMessage (at ChatRow.js:71)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at FileOperationMessage.js:61)
+    in FileOperationMessage (at ChatRow.js:71)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:23)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloQuestionMessage.js:22)
+    in TouchableWithoutFeedback (at KiloQuestionMessage.js:21)
+    in KiloQuestionMessage (at ChatRow.js:57)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at CommandMessage.js:14)
+    in CommandMessage (at ChatRow.js:78)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at TextMessage.js:35)
+    in TouchableWithoutFeedback (at TextMessage.js:34)
+    in TextMessage (at ChatRow.js:43)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at TextMessage.js:35)
+    in TouchableWithoutFeedback (at TextMessage.js:34)
+    in TextMessage (at ChatRow.js:50)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at FileOperationMessage.js:61)
+    in FileOperationMessage (at ChatRow.js:71)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at CompletionResultMessage.js:14)
+    in CompletionResultMessage (at ChatRow.js:48)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:23)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at SwitchModeMessage.js:15)
+    in SwitchModeMessage (at ChatRow.js:74)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:27)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:23)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  HeaderTitle rendered
+ LOG  handle Send
+ LOG  Hi
+ ERROR  ReferenceError: Property 'StyleSheet' doesn't exist
+
+This error is located at:
+    in MessageCard (at KiloSaidMessage.js:21)
+    in RCTView (at View.js:116)
+    in View (at Pressable.js:339)
+    in Pressable (created by Pressable)
+    in KiloSaidMessage (at ChatRow.js:23)
+    in RCTView (at View.js:116)
+    in View (at ChatRow.js:88)
+    in ChatRow (at ChatView.js:152)
+    in RCTView (at View.js:116)
+    in View (at VirtualizedListCellRenderer.js:207)
+    in VirtualizedListCellContextProvider (at VirtualizedListCellRenderer.js:228)
+    in CellRenderer (at VirtualizedList.js:803)
+    in RCTScrollContentView (at ScrollView.js:1732)
+    in RCTScrollView (at ScrollView.js:1855)
+    in ScrollView (at ScrollView.js:1925)
+    in ScrollView (at VirtualizedList.js:1277)
+    in VirtualizedListContextProvider (at VirtualizedList.js:1103)
+    in VirtualizedList (at FlatList.js:687)
+    in FlatList (at ChatView.js:170)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:168)
+    in TouchableWithoutFeedback (at ChatView.js:166)
+    in RCTView (at View.js:116)
+    in View (at ChatView.js:164)
+    in RCTView (at View.js:116)
+    in View (at KeyboardAvoidingView.js:250)
+    in KeyboardAvoidingView (at ChatView.js:159)
+    in ChatView (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:32)
+    in ChatStack (created by SceneView)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by BottomTabNavigator)
+    in RCTView (at View.js:116)
+    in View (created by Screen)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Background)
+    in Background (created by Screen)
+    in Screen (created by BottomTabView)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by BottomTabView)
+    in RNSScreenNavigationContainer (at src/index.native.tsx:398)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by BottomTabView)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by BottomTabView)
+    in BottomTabView (created by BottomTabNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by BottomTabNavigator)
+    in BottomTabNavigator (at App.js:42)
+    in MainTabs (at App.js:110)
+    in StaticContainer
+    in EnsureSingleNavigator (created by SceneView)
+    in SceneView (created by StackNavigator)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardContent)
+    in CardContent (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by PanGestureHandler)
+    in PanGestureHandler (created by PanGestureHandler)
+    in PanGestureHandler (created by Card)
+    in RCTView (at View.js:116)
+    in View (at createAnimatedComponent.js:54)
+    in Unknown (created by Card)
+    in Card (created by CardContainerInner)
+    in RCTView (at View.js:116)
+    in View (created by CardA11yWrapper)
+    in CardA11yWrapper (created by CardContainerInner)
+    in CardContainerInner (created by CardStack)
+    in RNSScreen (at createAnimatedComponent.js:54)
+    in Unknown (at src/index.native.tsx:314)
+    in Suspender (at src/index.tsx:27)
+    in Suspense (at src/index.tsx:26)
+    in Freeze (at src/index.native.tsx:206)
+    in DelayedFreeze (at src/index.native.tsx:313)
+    in InnerScreen (at src/index.native.tsx:566)
+    in Screen (created by MaybeScreen)
+    in MaybeScreen (created by CardStack)
+    in RNSScreenContainer (at src/index.native.tsx:400)
+    in ScreenContainer (created by MaybeScreenContainer)
+    in MaybeScreenContainer (created by CardStack)
+    in RCTView (at View.js:116)
+    in View (created by CardStack)
+    in CardStack (created by HeaderShownContext)
+    in FrameSizeProviderInner (created by FrameSizeProvider)
+    in FrameSizeProvider (created by SafeAreaProviderCompat)
+    in RCTView (at View.js:116)
+    in View (created by SafeAreaProviderCompat)
+    in SafeAreaProviderCompat (created by StackView)
+    in RCTView (at View.js:116)
+    in View (at GestureHandlerRootView.tsx:20)
+    in GestureHandlerRootView (created by StackView)
+    in StackView (created by StackNavigator)
+    in PreventRemoveProvider (created by NavigationContent)
+    in NavigationStateListenerProvider (created by NavigationContent)
+    in NavigationContent
+    in Unknown (created by StackNavigator)
+    in StackNavigator (at App.js:95)
+    in ThemeProvider
+    in EnsureSingleNavigator
+    in BaseNavigationContainer
+    in NavigationContainerInner (at App.js:94)
+    in AppContent (at App.js:121)
+    in ThemeProvider (at App.js:120)
+    in RNCSafeAreaProvider (at SafeAreaContext.tsx:92)
+    in SafeAreaProvider (at App.js:119)
+    in App (at withDevTools.ios.js:29)
+    in withDevTools(App) (at renderApplication.js:57)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:127)
+    in RCTView (at View.js:116)
+    in View (at AppContainer.js:155)
+    in AppContainer (at renderApplication.js:50)
+    in main(RootComponent) (at renderApplication.js:67), js engine: hermes
+ LOG  HeaderTitle rendered
+ LOG  ChatView focused with task: undefined
+ LOG  New chat session.
+ LOG  HeaderTitle rendered
+ LOG  handle Send
+ LOG  Hi
+ WARN  (ADVICE) View #18533 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE connection opened.
+ LOG  onTaskId callback received taskId: c4c48556-211b-4332-90b4-ec8dff921f4f
+ LOG  Okay, I understand the task. T
+ WARN  (ADVICE) View #18585 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Okay, I understand the task. T
+ LOG  Okay, I understand the task. T
+ LOG  {"tool":"updateTodoList","todo
+ WARN  (ADVICE) View #18665 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"newFileCreated","path
+ WARN  (ADVICE) View #18727 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #18763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"readFile","path":"src
+ WARN  (ADVICE) View #18797 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  I've reviewed the code. The co
+ WARN  (ADVICE) View #18863 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"request":"[apply_diff for 'a
+ LOG  {"question":"To format the tim
+ WARN  (ADVICE) View #19015 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  npm install date-fns
+ WARN  (ADVICE) View #19047 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  added 1 package, and audited 5
+ WARN  (ADVICE) View #19115 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  Failed to apply diff: The file
+ WARN  (ADVICE) View #19163 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"appliedDiff","path":"
+ WARN  (ADVICE) View #19199 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3
+ LOG  ### Task Complete!
+
+I have suc
+ WARN  (ADVICE) View #19347 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  This is a Kilo said message.
+ WARN  (ADVICE) View #19385 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  {"tool":"switchMode","mode":"c
+ WARN  (ADVICE) View #21487 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  
+ LOG  undefined
+ LOG  secondary text is kinda very g
+ WARN  (ADVICE) View #21549 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ LOG  SSE stream finished.
+ WARN  (ADVICE) View #21549 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #21487 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19385 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19347 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19199 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19163 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19115 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19047 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19015 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18863 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18797 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18727 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18665 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18585 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18533 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #21549 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #21487 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19385 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19347 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19199 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19163 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19115 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19047 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19015 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18863 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18797 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18727 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18665 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18585 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18533 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #21549 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #21487 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19385 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19347 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19199 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19163 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19115 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19047 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #19015 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18863 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18797 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18763 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18727 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18665 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18585 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
+ WARN  (ADVICE) View #18533 of type ExpoLinearGradient.LinearGradientView has a shadow set but cannot calculate shadow efficiently. Consider setting a background color to fix this, or apply the shadow to a more specific component.
