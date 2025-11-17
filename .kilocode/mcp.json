@@ -13,15 +13,18 @@
         "--project",
         "/Users/sainath/WebstormProjects/aetcanvas/"
       ],
-      "disabled": false,
-      "alwaysAllow": []
+      "disabled": true,
+      "alwaysAllow": [],
+      "disabledTools": []
     },
     "memory": {
       "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-memory"
-      ]
+      ],
+      "disabled": true,
+      "alwaysAllow": []
     }
   }
 }

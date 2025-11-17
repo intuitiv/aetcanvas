@@ -13,7 +13,7 @@ import {
     TouchableOpacity,
 } from "react-native";
 
-import useChatController from "./src/hooks/useChatController";
+import {useChatController} from "./src/hooks/useChatController";
 import {ChatInput} from "./src/components/ChatInput";
 import {MessageBubble} from "./src/components/MessageBubble";
 import {TraceList} from "./src/components/Sources";
@@ -60,7 +60,7 @@ export default function App() {
                     {/* Header */}
                     <View style={styles.header}>
                         <View style={{ width: 48 }} />
-                        <Text style={styles.title}>Chaetra</Text>
+                        <Text style={styles.title}>aet canvas</Text>
 
                         <PlusButton onPress={handleNewChat} />
                     </View>

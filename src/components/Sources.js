@@ -18,7 +18,7 @@ const SourceCard = ({ source }) => {
     const isText = source.mime_type === 'application/pdf' || (source.mime_type || '').startsWith('text/');
 
     return (
-        <View style={[styles.card, isText ? styles.cardText : null]}>
+        <View style={styles.card}>
             <View style={styles.cardRow}>
                 <Icon name={isText ? 'file-text' : 'file'} size={20} color="#9ca3af" style={styles.cardIcon} />
                 <View style={{ flex: 1 }}>
@@ -41,12 +41,12 @@ const CollapsibleSection = ({ title, count, children }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     if (!count) return null;
     return (
-        <View style={{ marginBottom: 6 }}>
+        <View style={{ marginBottom: 4 }}>
             <TouchableOpacity onPress={() => setIsExpanded((s) => !s)} style={styles.collapsibleBtn}>
                 <Icon name={isExpanded ? 'chevron-up' : 'chevron-down'} size={18} color="#94a3b8" />
                 <Text style={styles.collapsibleText}>{isExpanded ? `Hide ${title}` : `Show ${count} ${title}`}</Text>
             </TouchableOpacity>
-            {isExpanded && <View style={{ marginTop: 8 }}>{children}</View>}
+            {isExpanded && <View style={{ marginTop: 6 }}>{children}</View>}
         </View>
     );
 };
@@ -115,20 +115,17 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
     },
-    cardText: {
-        // same appearance, keeps consistent styling for text sources
-    },
     cardRow: { flexDirection: 'row', alignItems: 'center' },
-    cardIcon: { marginRight: 8 },
+    cardIcon: { marginRight: 10 },
     cardTitleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
     cardTitle: { color: '#e5e7eb', fontWeight: '700', fontSize: 13, flex: 1 },
     cardScore: { color: '#60a5fa', fontSize: 11, marginLeft: 8 },
-    cardSnippet: { color: '#cbd5e1', fontStyle: 'italic', marginTop: 6, fontSize: 13 },
-    collapsibleBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 4 },
-    collapsibleText: { color: '#94a3b8', marginLeft: 8, fontSize: 12 },
+    cardSnippet: { color: '#cbd5e1', fontStyle: 'italic', marginTop: 4, fontSize: 13, lineHeight: 18 },
+    collapsibleBtn: { flexDirection: 'row', alignItems: 'center', paddingVertical: 2 },
+    collapsibleText: { color: '#94a3b8', marginLeft: 8, fontSize: 12, fontWeight: '500' },
     traceRow: { flexDirection: 'row', alignItems: 'center', marginVertical: 6, gap: 8 },
     traceText: { color: '#94a3b8', flex: 1, fontSize: 12 },
     traceDuration: { flexDirection: 'row', alignItems: 'center', gap: 4 },
     durationText: { color: '#9ca3af', fontSize: 10, marginLeft: 4 },
-    footer: { marginTop: 8, paddingTop: 8, borderTopWidth: 1, borderTopColor: '#1f2937' },
+    footer: { borderTopWidth: 1, borderTopColor: '#374151', paddingTop: 4 },
 });

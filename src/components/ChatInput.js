@@ -36,18 +36,18 @@ export const ChatInput = ({
             {attachment && (
                 <View style={styles.attachmentBar}>
                     <View style={styles.attachmentLeft}>
-                        <Icon name="paperclip" size={16} color="#e5e7eb" />
+                        <Icon name="paperclip" size={16} color="#e5e7eb"/>
                         <Text style={styles.attachmentName} numberOfLines={1}>{attachment.name}</Text>
                     </View>
                     <TouchableOpacity onPress={() => setAttachment(null)}>
-                        <Icon name="x" size={18} color="#e5e7eb" />
+                        <Icon name="x" size={18} color="#e5e7eb"/>
                     </TouchableOpacity>
                 </View>
             )}
 
             <View style={[styles.inputRow, isLoading ? styles.inputRowDisabled : null]}>
                 <TouchableOpacity onPress={onPickAttachment} disabled={isLoading} style={styles.iconBtn}>
-                    <Icon name="paperclip" size={20} color="#cbd5e1" />
+                    <Icon name="paperclip" size={20} color="#cbd5e1"/>
                 </TouchableOpacity>
 
                 <TextInput
@@ -72,7 +72,8 @@ export const ChatInput = ({
                     disabled={!canSend}
                     style={[styles.sendBtn, canSend ? styles.sendBtnEnabled : styles.sendBtnDisabled]}
                 >
-                    {isLoading ? <ActivityIndicator /> : <Icon name="send" size={18} color={canSend ? '#fff' : '#9ca3af'} />}
+                    {isLoading ? <ActivityIndicator/> :
+                        <Icon name="send" size={18} color={canSend ? '#fff' : '#9ca3af'}/>}
                 </TouchableOpacity>
             </View>
         </View>
@@ -80,7 +81,8 @@ export const ChatInput = ({
 };
 
 const styles = StyleSheet.create({
-    container: { paddingHorizontal: 16, paddingBottom: 12, paddingTop: 8 },
+
+    container: {paddingHorizontal: 16, paddingBottom: 12, paddingTop: 8},
     attachmentBar: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -90,8 +92,8 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         borderRadius: 8,
     },
-    attachmentLeft: { flexDirection: 'row', alignItems: 'center', gap: 8, flex: 1 },
-    attachmentName: { color: '#e5e7eb', marginLeft: 8, fontSize: 12, flex: 1 },
+    attachmentLeft: {flexDirection: 'row', alignItems: 'center', gap: 8, flex: 1},
+    attachmentName: {color: '#e5e7eb', marginLeft: 8, fontSize: 12, flex: 1},
     inputRow: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -101,10 +103,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         paddingVertical: 6,
     },
-    inputRowDisabled: { opacity: 0.7 },
-    iconBtn: { padding: 6 },
-    textInput: { flex: 1, paddingHorizontal: 8, color: '#fff', minHeight: 36 },
-    sendBtn: { padding: 8, borderRadius: 999 },
-    sendBtnEnabled: { backgroundColor: '#0ea5e9' },
-    sendBtnDisabled: { backgroundColor: '#374151' },
+    inputRowDisabled: {opacity: 0.7},
+    iconBtn: {padding: 6},
+    textInput: {flex: 1, paddingHorizontal: 8, color: '#fff', minHeight: 36, outlineStyle: "none",},
+    sendBtn: {padding: 8, borderRadius: 999},
+    sendBtnEnabled: {backgroundColor: '#0ea5e9'},
+    sendBtnDisabled: {backgroundColor: '#374151'},
 });

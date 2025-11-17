@@ -7,59 +7,78 @@ import { SourcesAndTraceFooter } from './Sources';
 /**
  * Props:
  *  - item: Message { id, sender, text, sources[], attachmentName, trace[] }
- *
- * This file preserves the original rendering logic and console logs that you had
- * so you can still inspect the shapes at runtime.
  */
 
-export const MessageBubble = ({ item }) => {
-    console.log(`\n--- [MessageBubble] Rendering ID: ${item.id} ---`);
-    console.log('[MessageBubble] Full item:', JSON.stringify(item, null, 2));
+// --- Style Helper ---
+const getBubbleStyles = (item, primaryImageSource) => {
+    const isUser = item.sender === 'user';
+    const bubbleStyle = [bubbleStyles.bubble];
 
+    if (isUser) {
+        bubbleStyle.push(bubbleStyles.bubbleUser);
+        bubbleStyle.push({ borderBottomRightRadius: 0 });
+    } else {
+        bubbleStyle.push(bubbleStyles.bubbleBot);
+        bubbleStyle.push({ borderBottomLeftRadius: 0 });
+    }
+
+    if (primaryImageSource) {
+        bubbleStyle.push({ marginTop: 8 });
+    }
+
+    return bubbleStyle;
+};
+
+// --- Content Renderers ---
+const renderTextContent = (text) => (
+    <View style={{ padding: 10 }}>
+        <Text style={bubbleStyles.paragraph}>{text}</Text>
+    </View>
+);
+
+const renderAttachment = (attachmentName) => (
+    <View style={bubbleStyles.attachmentRow}>
+        <Icon name="paperclip" size={16} color="#e5e7eb" />
+        <Text style={bubbleStyles.attachmentText} numberOfLines={1}>{attachmentName}</Text>
+    </View>
+);
+
+const renderFooter = (sources, trace) => (
+    <View style={{ paddingHorizontal: 12, paddingTop: 6, paddingBottom: 8 }}>
+        <SourcesAndTraceFooter sources={sources} trace={trace} />
+    </View>
+);
+
+
+export const MessageBubble = ({ item }) => {
     const primaryImageSource = item.sources?.find((s) => s.mime_type?.startsWith('image/'));
     const otherSources = item.sources?.filter((s) => s.source_id !== primaryImageSource?.source_id) || [];
     const hasTextContent = !!item.text;
     const hasFooterContent = otherSources.length > 0 || (item.trace && item.trace.length > 0);
 
     return (
-        <View style={[styles.row, { alignItems: item.sender === 'user' ? 'flex-end' : 'flex-start' }]}>
-            <View style={styles.inner}>
+        <View style={[bubbleStyles.row, { alignItems: item.sender === 'user' ? 'flex-end' : 'flex-start' }]}>
+            <View style={[
+                bubbleStyles.inner,
+                item.sender === 'chaetra' && { width: '100%' }
+            ]}>
                 {primaryImageSource && (
-                    <View style={styles.responseImageContainer}>
-                        <Image source={{ uri: primaryImageSource.preview_url }} style={styles.responseImage} />
+                    <View style={bubbleStyles.responseImageContainer}>
+                        <Image source={{ uri: primaryImageSource.preview_url }} style={bubbleStyles.responseImage} />
                     </View>
                 )}
 
-                <View
-                    style={[
-                        styles.bubble,
-                        item.sender === 'user' ? styles.bubbleUser : styles.bubbleBot,
-                        primaryImageSource ? { marginTop: 8 } : null,
-                        item.sender === 'user' ? { borderBottomRightRadius: 0 } : null,
-                        item.sender === 'chaetra' ? { borderBottomLeftRadius: 0 } : null,
-                    ]}
-                >
-                    {hasTextContent && <View style={{ padding: 10 }}><Text style={styles.paragraph}>{item.text}</Text></View>}
-
-                    {item.attachmentName && (
-                        <View style={styles.attachmentRow}>
-                            <Icon name="paperclip" size={16} color="#e5e7eb" />
-                            <Text style={styles.attachmentText} numberOfLines={1}>{item.attachmentName}</Text>
-                        </View>
-                    )}
-
-                    {item.sender === 'chaetra' && hasFooterContent && (
-                        <View style={{ padding: 12, paddingTop: hasTextContent ? 6 : 12 }}>
-                            <SourcesAndTraceFooter sources={otherSources} trace={item.trace || []} />
-                        </View>
-                    )}
+                <View style={getBubbleStyles(item, primaryImageSource)}>
+                    {hasTextContent && renderTextContent(item.text)}
+                    {item.attachmentName && renderAttachment(item.attachmentName)}
+                    {item.sender === 'chaetra' && hasFooterContent && renderFooter(otherSources, item.trace || [])}
                 </View>
             </View>
         </View>
     );
 };
 
-const styles = StyleSheet.create({
+const bubbleStyles = StyleSheet.create({
     row: { width: '100%', paddingHorizontal: 10 },
     inner: { maxWidth: '85%' },
     responseImageContainer: {
@@ -68,13 +87,22 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         backgroundColor: '#000',
     },
-    responseImage: { width: '100%', aspectRatio: 16 / 9, resizeMode: 'contain' },
+    responseImage: {
+        width: '100%',
+        aspectRatio: 16 / 9,
+        resizeMode: 'cover',
+    },
     bubble: {
         borderRadius: 14,
         overflow: 'hidden',
     },
-    bubbleUser: { backgroundColor: '#0ea5e9', alignSelf: 'flex-end' },
-    bubbleBot: { backgroundColor: '#1f2937', alignSelf: 'flex-start' },
+    // --- THE FIX: Removed 'alignSelf' from both styles ---
+    bubbleUser: {
+        backgroundColor: '#0ea5e9',
+    },
+    bubbleBot: {
+        backgroundColor: '#1f2937',
+    },
     paragraph: { color: '#e6eef8', lineHeight: 22 },
     attachmentRow: {
         flexDirection: 'row',

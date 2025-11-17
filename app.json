@@ -4,17 +4,19 @@
     "slug": "aet-canvas",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon_dark.png",
+    "backgroundColor": "#181818",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./assets/icon_dark.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#181818"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
+      "backgroundColor": "#181818",
       "infoPlist": {
         "NSAppTransportSecurity": {
           "NSAllowsArbitraryLoads": true
@@ -27,14 +29,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icon_dark.png",
+        "backgroundColor": "#181818"
       },
       "usesCleartextTraffic": true,
       "package": "com.aet.aetcanvas"
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/icon_dark.png"
     },
     "plugins": [
       "expo-font",
