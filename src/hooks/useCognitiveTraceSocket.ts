@@ -2,8 +2,8 @@
 
 import { useState, useRef, useCallback } from 'react';
 
-const WEBSOCKET_URL = 'http://aet-mac.badger-corn.ts.net:8000';
-const MOCK_USER_ID = 'test_user';
+const WEBSOCKET_URL = 'http://localhost:8000';
+const DEFAULT_USER_ID = 'sainathm';  // Default user (auth will be added later)
 
 export interface TraceStep {
     id: string;
@@ -22,7 +22,7 @@ export const useCognitiveTraceSocket = () => {
 
         setTraceSteps([]);
         lastTimestamp.current = Date.now();
-        const wsUrl = `${WEBSOCKET_URL.replace('http', 'ws')}/ws/chaetra-updates/${MOCK_USER_ID}`;
+        const wsUrl = `${WEBSOCKET_URL.replace('http', 'ws')}/ws/chaetra-updates/${DEFAULT_USER_ID}`;
         const ws = new WebSocket(wsUrl);
         socketRef.current = ws;
 

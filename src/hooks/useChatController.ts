@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Platform, TextInput, FlatList } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 import { useCognitiveTraceSocket, TraceStep } from './useCognitiveTraceSocket';
-import { apiClient, MOCK_USER_ID } from '../services/api';
+import { apiClient, DEFAULT_USER_ID } from '../services/api';
 import { Message } from '../types';
 
 export const useChatController = () => {
@@ -109,11 +109,11 @@ export const useChatController = () => {
                 }
                 formData.append('document_title', attachmentToSend.name);
                 formData.append('message', messageText);
-                const response = await apiClient.post('/knowledge/upload', formData, { headers: { 'Content-Type': 'multipart/form-data', 'X-User-Id': MOCK_USER_ID, }, });
+                const response = await apiClient.post('/knowledge/upload', formData, { headers: { 'Content-Type': 'multipart/form-data', 'X-User-Id': DEFAULT_USER_ID, }, });
                 chaetraResponse = response.data;
             } else {
                 const payload: any = {
-                    user_id: MOCK_USER_ID,
+                    user_id: DEFAULT_USER_ID,
                     message_text: messageText,
                     conversation_id: conversationId,
                     metadata: {}
