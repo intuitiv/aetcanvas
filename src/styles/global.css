@@ -1,0 +1,37 @@
+/* Global styles for web - Remove focus outlines */
+
+/* Remove default focus outline from all inputs and textareas */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus,
+[tabindex]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove webkit appearance for inputs */
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+/* Specifically target React Native Web elements */
+[data-focusable="true"]:focus,
+[data-focusable]:focus {
+  outline: none !important;
+}
+
+/* Remove any browser default blue/white focus rings */
+*:focus {
+  outline: none !important;
+}
+
+/* iOS-style smooth text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

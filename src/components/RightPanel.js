@@ -12,6 +12,7 @@ import {
     Linking,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { API_BASE } from '../services/api';
 
 // Pastel color palette
 const COLORS = {
@@ -33,7 +34,7 @@ const COLORS = {
     outlook: '#a5b8e8',     // Pastel blue (Microsoft)
 };
 
-const API_BASE = 'http://localhost:8000';
+
 
 // Service configuration with iOS icon names
 const SERVICES = [
@@ -66,7 +67,8 @@ const SERVICES = [
         name: 'Calendar',
         iconName: 'calendar',       // iOS calendar
         color: COLORS.calendar,
-        comingSoon: true,
+        authEndpoint: '/api/v1/auth/microsoft/login-desktop',
+        statusEndpoint: '/api/v1/channels/outlook/status',
     },
 ];
 
@@ -130,6 +132,16 @@ const ConnectionItem = ({ service, status, onConnect, loading }) => {
                     styles.statusDot,
                     { backgroundColor: isConnected ? COLORS.success : COLORS.textDim }
                 ]} />
+            )}
+
+            {!service.comingSoon && isConnected && status?.last_sync && (
+                <Text style={styles.lastSyncText}>
+                    {(() => {
+                        const diff = (new Date() - new Date(status.last_sync + 'Z')) / 1000 / 60;
+                        if (diff < 1) return 'Just now';
+                        return `${Math.floor(diff)}m ago`;
+                    })()}
+                </Text>
             )}
 
             {!service.comingSoon && !isConnected && (
@@ -240,7 +252,22 @@ export const RightPanel = ({
                         { backgroundColor: hasAnyConnection ? COLORS.success : COLORS.textDim }
                     ]} />
                     <Text style={styles.connectedText}>
-                        {hasAnyConnection ? 'Connected' : 'Offline'}
+                        {(() => {
+                            if (!hasAnyConnection) return 'Offline';
+                            // Find most recent sync
+                            const times = Object.values(statuses)
+                                .map(s => s?.last_sync)
+                                .filter(Boolean)
+                                .map(t => new Date(t + 'Z').getTime());
+                            
+                            if (times.length === 0) return 'Connected';
+                            
+                            const maxTime = Math.max(...times);
+                            const diff = (new Date().getTime() - maxTime) / 1000 / 60;
+                            
+                            if (diff < 1) return 'Synced: Just now';
+                            return `Synced: ${Math.floor(diff)}m ago`;
+                        })()}
                     </Text>
                 </View>
                 <TouchableOpacity style={styles.toggleBtn} onPress={onToggle}>

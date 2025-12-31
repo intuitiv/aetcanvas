@@ -30,22 +30,16 @@ const NAV_ITEMS = [
     label: "Chat",
   },
   {
-    id: "contacts",
-    icon: "people",
-    iconOutline: "people-outline",
-    label: "Contacts",
-  },
-  {
     id: "connections",
     icon: "link",
     iconOutline: "link-outline",
     label: "Connect",
   },
   {
-    id: "bodymap",
-    icon: "analytics",
-    iconOutline: "analytics-outline",
-    label: "Body Map",
+    id: "notifications",
+    icon: "notifications",
+    iconOutline: "notifications-outline",
+    label: "Alerts",
   },
 ];
 

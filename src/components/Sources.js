@@ -158,8 +158,10 @@ const SourceCard = ({ source }) => {
     );
 };
 
-// --- Source Pills Row with grouping and counts (matching mockup) ---
+// --- Source Pills Row with grouping, counts, and expandable links ---
 export const SourcePillsRow = ({ sources }) => {
+    const [expandedGroup, setExpandedGroup] = useState(null);
+    
     if (!sources || sources.length === 0) return null;
 
     // Group sources by type and count them
@@ -249,41 +251,82 @@ export const SourcePillsRow = ({ sources }) => {
 
     const groups = Object.values(grouped);
 
-    return (
-        <View style={styles.pillsRow}>
-            {groups.map((group, i) => {
-                let countText = '';
-                if (group.type === 'gmail') {
-                    // Use emailCount from metadata if available, otherwise use count
-                    const emailNum = group.emailCount || group.count;
-                    countText = `${emailNum} ${emailNum === 1 ? 'email' : 'emails'}`;
-                } else if (group.type === 'document') {
-                    countText = `${group.count} ${group.count === 1 ? 'doc' : 'docs'}`;
-                } else if (group.type === 'url') {
-                    countText = group.count > 1 ? `${group.count} pages` : '';
-                } else if (group.type === 'memory') {
-                    countText = group.count > 1 ? `${group.count} items` : '';
-                }
+    const handlePillPress = (groupType) => {
+        setExpandedGroup(expandedGroup === groupType ? null : groupType);
+    };
 
-                return (
-                    <View
-                        key={i}
-                        style={[styles.pillWithCount, { backgroundColor: group.color + '20', borderColor: group.color }]}
-                    >
-                        <View style={styles.pillIconContainer}>
+    const handleLinkPress = (url) => {
+        if (url) {
+            Linking.openURL(url);
+        }
+    };
+
+    return (
+        <View>
+            <View style={styles.pillsRow}>
+                {groups.map((group, i) => {
+                    let countText = '';
+                    if (group.type === 'gmail') {
+                        const emailNum = group.emailCount || group.count;
+                        countText = `${emailNum} ${emailNum === 1 ? 'email' : 'emails'}`;
+                    } else if (group.type === 'document') {
+                        countText = `${group.count} ${group.count === 1 ? 'doc' : 'docs'}`;
+                    } else if (group.type === 'url') {
+                        countText = `${group.count} ${group.count === 1 ? 'link' : 'links'}`;
+                    } else if (group.type === 'memory') {
+                        countText = group.count > 1 ? `${group.count} items` : '';
+                    }
+
+                    return (
+                        <TouchableOpacity
+                            key={i}
+                            style={[styles.pillWithCount, { backgroundColor: group.color + '20', borderColor: group.color }]}
+                            onPress={() => handlePillPress(group.type)}
+                        >
+                            <View style={styles.pillIconContainer}>
+                                <Ionicons
+                                    name={IOS_ICONS[group.iconType] || 'document'}
+                                    size={14}
+                                    color={group.color}
+                                />
+                            </View>
+                            <Text style={[styles.pillLabel, { color: group.color }]}>
+                                {group.label}
+                                {countText ? `: ${countText}` : ''}
+                            </Text>
                             <Ionicons
-                                name={IOS_ICONS[group.iconType] || 'document'}
-                                size={14}
+                                name={expandedGroup === group.type ? 'chevron-up' : 'chevron-down'}
+                                size={12}
                                 color={group.color}
+                                style={{ marginLeft: 4 }}
                             />
-                        </View>
-                        <Text style={[styles.pillLabel, { color: group.color }]}>
-                            {group.label}
-                            {countText ? `: ${countText}` : ''}
-                        </Text>
-                    </View>
-                );
-            })}
+                        </TouchableOpacity>
+                    );
+                })}
+            </View>
+            
+            {/* Expanded links list */}
+            {expandedGroup && groups.find(g => g.type === expandedGroup) && (
+                <View style={styles.expandedLinks}>
+                    {groups.find(g => g.type === expandedGroup).items.slice(0, 10).map((item, idx) => (
+                        <TouchableOpacity 
+                            key={idx} 
+                            style={styles.linkItem}
+                            onPress={() => handleLinkPress(item.url)}
+                        >
+                            <Ionicons name="link" size={12} color={COLORS.url} />
+                            <Text style={styles.linkText} numberOfLines={1}>
+                                {item.page_title || item.snippet || item.url || 'Link'}
+                            </Text>
+                            {item.url && (
+                                <Text style={styles.linkDomain} numberOfLines={1}>
+                                    {new URL(item.url).hostname}
+                                </Text>
+                            )}
+                        </TouchableOpacity>
+                    ))}
+                </View>
+            )}
         </View>
     );
 };
@@ -514,5 +557,34 @@ const styles = StyleSheet.create({
     pillLabel: {
         fontSize: 11,
         fontWeight: '600',
+    },
+
+    // --- Expanded links section ---
+    expandedLinks: {
+        marginTop: 8,
+        backgroundColor: COLORS.bgHover,
+        borderRadius: 8,
+        padding: 8,
+    },
+
+    linkItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingVertical: 6,
+        paddingHorizontal: 8,
+        borderRadius: 6,
+    },
+
+    linkText: {
+        flex: 1,
+        fontSize: 12,
+        color: COLORS.text,
+        marginLeft: 8,
+    },
+
+    linkDomain: {
+        fontSize: 10,
+        color: COLORS.textDim,
+        marginLeft: 8,
     },
 });

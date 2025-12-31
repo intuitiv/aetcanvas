@@ -434,10 +434,7 @@ export const MessageBubble = ({ item }) => {
                     {/* Content */}
                     {hasTextContent && <RenderTextContent text={item.text} isUser={isUser} width={width} />}
 
-                    {/* Embedded URL cards */}
-                    {item.sender === 'chaetra' && urlSources.map((src, i) => (
-                        <EmbeddedUrlCard key={i} source={src} />
-                    ))}
+                    {/* URL sources are now shown ONLY in compact pill at footer, not as individual cards */}
 
                     {item.attachmentName && renderAttachment(item.attachmentName)}
 

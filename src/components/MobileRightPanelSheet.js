@@ -18,6 +18,7 @@ import {
     PanResponder,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { API_BASE } from '../services/api';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -47,7 +48,6 @@ const COLORS = {
     backdrop: 'rgba(0, 0, 0, 0.6)',
 };
 
-const API_BASE = 'http://localhost:8000';
 
 const SERVICES = [
     {

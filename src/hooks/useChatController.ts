@@ -43,6 +43,23 @@ export const useChatController = () => {
         inputRef.current?.focus();
     };
 
+    /**
+     * Add a system message to the chat (e.g., notification content)
+     * @param title - Message title
+     * @param content - Message content
+     * @param sources - Optional array of sources for pill display
+     */
+    const addSystemMessage = (title: string, content: string, sources?: any[]) => {
+        const systemMessage: Message = {
+            id: `system-${Date.now()}`,
+            text: `**${title}**\n\n${content}`,
+            sender: 'chaetra',
+            sources: sources || undefined,
+        };
+        setMessages((prev) => [...prev, systemMessage]);
+        flatListRef.current?.scrollToEnd({ animated: true });
+    };
+
     const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'ArrowUp') {
             e.preventDefault();
@@ -155,7 +172,7 @@ export const useChatController = () => {
 
     return {
         messages, isLoading, inputText, setInputText, attachment, setAttachment,
-        traceSteps, flatListRef, inputRef, handleNewChat, handleInputKeyDown,
-        handlePickAttachment, handleSendMessage,
+        traceSteps, flatListRef, inputRef, handleNewChat, addSystemMessage,
+        handleInputKeyDown, handlePickAttachment, handleSendMessage,
     };
 };

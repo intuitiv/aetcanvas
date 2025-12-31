@@ -1,5 +1,5 @@
 // components/Header.js
-// Top header bar with search and status
+// Top header bar with search, notifications, user avatar
 
 import React, { useState } from 'react';
 import {
@@ -8,7 +8,9 @@ import {
     TextInput,
     TouchableOpacity,
     StyleSheet,
+    Image,
 } from 'react-native';
+import { NotificationBell } from './NotificationBell';
 
 const COLORS = {
     bg: '#0f0f1a',
@@ -17,13 +19,17 @@ const COLORS = {
     text: '#e2e8f0',
     textDim: '#9ca3af',
     success: '#10b981',
-    accent: '#6366f1',
+    accent: '#818cf8',
 };
 
 export const Header = ({
     onMenuPress,
     onNewChat,
     onSearch,
+    onNotificationPress,
+    onProfilePress,
+    activeView = 'chat',
+    userProfile = null,
     isConnected = false,
     showMenuButton = false,
 }) => {
@@ -34,6 +40,14 @@ export const Header = ({
             onSearch?.(searchText);
         }
     };
+
+    // Get initials from profile
+    const getInitials = (name) => {
+        if (!name) return 'U';
+        return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+    };
+
+    const displayName = userProfile?.display_name || userProfile?.full_name || 'User';
 
     return (
         <View style={styles.header}>
@@ -52,7 +66,7 @@ export const Header = ({
                 <Text style={styles.searchIcon}>🔍</Text>
                 <TextInput
                     style={styles.searchInput}
-                    placeholder="Search memory, documents, conversations..."
+                    placeholder="Search reminders, contacts, conversations..."
                     placeholderTextColor={COLORS.textDim}
                     value={searchText}
                     onChangeText={setSearchText}
@@ -61,14 +75,38 @@ export const Header = ({
                 />
             </View>
 
-            {/* Right side - new chat button only (connection status shown in right panel) */}
+            {/* Right side - notification bell, new chat button (chat only), user avatar */}
             <View style={styles.rightSection}>
-                {/* New chat button */}
+                {/* Notification Bell */}
+                <NotificationBell onNotificationPress={onNotificationPress} />
+                
+                {/* New chat button - only on Chat view */}
+                {activeView === 'chat' && (
+                    <TouchableOpacity
+                        style={styles.newChatButton}
+                        onPress={onNewChat}
+                    >
+                        <Text style={styles.newChatIcon}>＋</Text>
+                    </TouchableOpacity>
+                )}
+
+                {/* User Avatar */}
                 <TouchableOpacity
-                    style={styles.newChatButton}
-                    onPress={onNewChat}
+                    style={styles.userAvatarBtn}
+                    onPress={onProfilePress}
                 >
-                    <Text style={styles.newChatIcon}>＋</Text>
+                    {userProfile?.photo_url ? (
+                        <Image 
+                            source={{ uri: userProfile.photo_url }} 
+                            style={styles.userAvatarImage}
+                        />
+                    ) : (
+                        <View style={styles.userAvatarPlaceholder}>
+                            <Text style={styles.userAvatarInitials}>
+                                {getInitials(displayName)}
+                            </Text>
+                        </View>
+                    )}
                 </TouchableOpacity>
             </View>
         </View>
@@ -80,15 +118,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 16,
-        paddingVertical: 12,
+        paddingVertical: 10,
         backgroundColor: COLORS.bg,
         borderBottomWidth: 1,
         borderBottomColor: COLORS.border,
     },
 
     menuButton: {
-        width: 40,
-        height: 40,
+        width: 36,
+        height: 36,
         borderRadius: 8,
         backgroundColor: COLORS.panel,
         justifyContent: 'center',
@@ -97,7 +135,7 @@ const styles = StyleSheet.create({
     },
 
     menuIcon: {
-        fontSize: 18,
+        fontSize: 16,
         color: COLORS.text,
     },
 
@@ -108,20 +146,20 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.panel,
         borderRadius: 10,
         paddingHorizontal: 12,
-        height: 40,
+        height: 36,
         borderWidth: 1,
         borderColor: COLORS.border,
     },
 
     searchIcon: {
-        fontSize: 14,
+        fontSize: 12,
         marginRight: 8,
     },
 
     searchInput: {
         flex: 1,
         color: COLORS.text,
-        fontSize: 14,
+        fontSize: 13,
         paddingVertical: 0,
     },
 
@@ -129,33 +167,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginLeft: 12,
-    },
-
-    statusPill: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingVertical: 6,
-        paddingHorizontal: 10,
-        backgroundColor: COLORS.panel,
-        borderRadius: 16,
-        marginRight: 10,
-    },
-
-    statusDot: {
-        width: 8,
-        height: 8,
-        borderRadius: 4,
-        marginRight: 6,
-    },
-
-    statusText: {
-        fontSize: 12,
-        color: COLORS.textDim,
+        gap: 8,
     },
 
     newChatButton: {
-        width: 40,
-        height: 40,
+        width: 36,
+        height: 36,
         borderRadius: 10,
         backgroundColor: COLORS.panel,
         justifyContent: 'center',
@@ -165,8 +182,37 @@ const styles = StyleSheet.create({
     },
 
     newChatIcon: {
-        fontSize: 20,
+        fontSize: 18,
         color: COLORS.text,
+    },
+
+    // User Avatar
+    userAvatarBtn: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        overflow: 'hidden',
+    },
+
+    userAvatarImage: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+    },
+
+    userAvatarPlaceholder: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        backgroundColor: COLORS.accent,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    userAvatarInitials: {
+        fontSize: 12,
+        fontWeight: '600',
+        color: '#fff',
     },
 });
 

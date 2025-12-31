@@ -11,6 +11,7 @@ import {
     Linking,
     ScrollView,
 } from 'react-native';
+import { API_BASE } from '../services/api';
 
 // Colors matching vision mockup
 const COLORS = {
@@ -61,8 +62,7 @@ const SERVICES = [
     },
 ];
 
-// API base URL from config
-const API_BASE = 'http://localhost:8000';
+// API base URL from centralized config
 
 // Single service card component - simplified, no disconnect button
 const ServiceCard = ({ service, status, onConnect, loading }) => {

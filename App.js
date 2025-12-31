@@ -1,5 +1,7 @@
 // App.js - Full UI Structure matching vision mockup
 
+// Import global styles for web (removes focus outlines)
+import './src/styles/global.css';
 import React, { useState, useEffect, useMemo } from "react";
 import {
     KeyboardAvoidingView,
@@ -26,6 +28,8 @@ import { ContactsTab } from "./src/components/ContactsTab";
 import { ProfileModal } from "./src/components/ProfileModal";
 import { MobileBottomNav } from "./src/components/MobileBottomNav";
 import { MobileRightPanelSheet } from "./src/components/MobileRightPanelSheet";
+import { RoutinesPanel } from "./src/components/RoutinesPanel";
+import { ApiDocsPanel } from "./src/components/ApiDocsPanel";
 import { API_BASE_URL } from "./src/services/api";
 
 // Hook to detect screen width
@@ -62,6 +66,7 @@ export default function App() {
         flatListRef,
         inputRef,
         handleNewChat,
+        addSystemMessage,
         handleInputKeyDown,
         handlePickAttachment,
         handleSendMessage,
@@ -78,17 +83,60 @@ export default function App() {
     const [bodyMapVisible, setBodyMapVisible] = useState(false);
     const [profileVisible, setProfileVisible] = useState(false);
     const [userProfile, setUserProfile] = useState(null);
-    const [activeView, setActiveView] = useState('chat'); // 'chat' | 'contacts'
+    const [activeView, setActiveView] = useState('chat'); // 'chat' | 'contacts' | 'routines'
     const [mobileRightPanelVisible, setMobileRightPanelVisible] = useState(false);
 
     // Calculate any connection status
     const [isConnected, setIsConnected] = useState(false);
 
+    // Handle notification click - fetch full content and inject into NEW chat
+    const handleNotificationPress = async (notification) => {
+        try {
+            // Start a new chat for each notification
+            handleNewChat();
+            
+            // Activate notification via API to get full content
+            const response = await fetch(
+                `${API_BASE_URL}/notifications/${notification.id}/activate?user_id=sainathm`,
+                { method: 'POST' }
+            );
+            
+            if (response.ok) {
+                const data = await response.json();
+                // Sources already have proper format from backend (source_type, url, page_title, snippet)
+                const sources = data.metadata?.sources || [];
+                // Inject full content into NEW chat with sources
+                addSystemMessage(
+                    data.title || notification.title,
+                    data.full_content || 'No content available',
+                    sources
+                );
+                // Switch to chat view if not already
+                setActiveView('chat');
+            } else {
+                // Fallback: just show the message
+                addSystemMessage(
+                    notification.title,
+                    notification.message || 'Click to view details',
+                    []
+                );
+            }
+        } catch (error) {
+            console.log('Failed to activate notification:', error);
+            // Fallback
+            addSystemMessage(
+                notification.title,
+                notification.message || 'Click to view details',
+                []
+            );
+        }
+    };
+
     useEffect(() => {
         // Check connection status
         const checkConnection = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/v1/channels/gmail/status');
+                const response = await fetch(`${API_BASE_URL}/channels/gmail/status`);
                 if (response.ok) {
                     const data = await response.json();
                     setIsConnected(data.connected);
@@ -245,13 +293,27 @@ export default function App() {
                         showMenuButton={isMobile}
                         onMenuPress={() => setLeftSidebarExpanded(!leftSidebarExpanded)}
                         onNewChat={handleNewChat}
+                        onNotificationPress={handleNotificationPress}
+                        onProfilePress={() => setProfileVisible(true)}
                         onSearch={(q) => console.log('Search:', q)}
+                        activeView={activeView}
+                        userProfile={userProfile}
                         isConnected={isConnected}
                     />
 
-                    {/* Main Content - Chat or Contacts */}
+
+                    {/* Main Content - Chat, Contacts, Reminders, Routines, or Docs */}
                     {activeView === 'contacts' ? (
                         <ContactsTab visible={activeView === 'contacts'} />
+                    ) : activeView === 'routines' ? (
+                        <RoutinesPanel />
+                    ) : activeView === 'reminders' ? (
+                        <RemindersPanel />
+
+                    ) : activeView === 'api_map' ? (
+                        <ApiDocsPanel docType="map" />
+                    ) : activeView === 'api_arch' ? (
+                        <ApiDocsPanel docType="arch" />
                     ) : (
                         <KeyboardAvoidingView
                             behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -308,8 +370,9 @@ export default function App() {
                             onTabPress={(tab) => {
                                 if (tab === 'connections') {
                                     setMobileRightPanelVisible(true);
-                                } else if (tab === 'bodymap') {
-                                    setBodyMapVisible(true);
+                                } else if (tab === 'notifications') {
+                                    // TODO: Open notifications panel/modal
+                                    console.log('Notifications tapped - to be implemented');
                                 } else {
                                     setActiveView(tab);
                                 }

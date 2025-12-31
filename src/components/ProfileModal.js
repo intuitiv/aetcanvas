@@ -14,7 +14,7 @@ import {
     Image,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { API_BASE_URL } from '../services/api';
+import { API_BASE } from '../services/api';
 
 const COLORS = {
     bg: '#0f0f1a',
@@ -29,6 +29,8 @@ const COLORS = {
     gmail: '#ea4335',
     outlook: '#0078d4',
     webex: '#00bceb',
+    tabActive: '#6366f1',
+    tabInactive: 'transparent',
 };
 
 export const ProfileModal = ({ visible, onClose }) => {
@@ -118,168 +120,170 @@ export const ProfileModal = ({ visible, onClose }) => {
                             <ActivityIndicator size="large" color={COLORS.accent} />
                         </View>
                     ) : (
-                        <ScrollView style={styles.content}>
-                            {/* Avatar & Name */}
-                            <View style={styles.avatarSection}>
-                                <View style={styles.avatar}>
-                                    {profile?.photo_url ? (
-                                        <Image source={{ uri: profile.photo_url }} style={styles.avatarImage} />
+                        <View style={{ flex: 1 }}>
+                            <ScrollView style={styles.content}>
+                                {/* Avatar & Name */}
+                                <View style={styles.avatarSection}>
+                                    <View style={styles.avatar}>
+                                        {profile?.photo_url ? (
+                                            <Image source={{ uri: profile.photo_url }} style={styles.avatarImage} />
+                                        ) : (
+                                            <Text style={styles.avatarText}>
+                                                {getInitials(displayName || profile?.full_name)}
+                                            </Text>
+                                        )}
+                                    </View>
+                                    {editMode ? (
+                                        <TextInput
+                                            style={styles.nameInput}
+                                            value={displayName}
+                                            onChangeText={setDisplayName}
+                                            placeholder="Display Name"
+                                            placeholderTextColor={COLORS.textDim}
+                                        />
                                     ) : (
-                                        <Text style={styles.avatarText}>
-                                            {getInitials(displayName || profile?.full_name)}
-                                        </Text>
+                                        <Text style={styles.name}>{displayName || profile?.full_name || 'Set your name'}</Text>
                                     )}
                                 </View>
-                                {editMode ? (
-                                    <TextInput
-                                        style={styles.nameInput}
-                                        value={displayName}
-                                        onChangeText={setDisplayName}
-                                        placeholder="Display Name"
-                                        placeholderTextColor={COLORS.textDim}
-                                    />
-                                ) : (
-                                    <Text style={styles.name}>{displayName || profile?.full_name || 'Set your name'}</Text>
-                                )}
-                            </View>
 
-                            {/* Bio */}
-                            <View style={styles.section}>
-                                <Text style={styles.sectionLabel}>Bio</Text>
-                                {editMode ? (
-                                    <TextInput
-                                        style={[styles.input, styles.bioInput]}
-                                        value={bio}
-                                        onChangeText={setBio}
-                                        placeholder="Tell us about yourself..."
-                                        placeholderTextColor={COLORS.textDim}
-                                        multiline
-                                    />
-                                ) : (
-                                    <Text style={styles.bioText}>{bio || 'No bio set'}</Text>
-                                )}
-                            </View>
-
-                            {/* Connected Accounts */}
-                            <View style={styles.section}>
-                                <Text style={styles.sectionLabel}>Connected Accounts</Text>
-
-                                {profile?.gmail_id && (
-                                    <View style={styles.channelRow}>
-                                        <View style={[styles.channelBadge, { backgroundColor: COLORS.gmail + '20' }]}>
-                                            <Text style={[styles.channelBadgeText, { color: COLORS.gmail }]}>G</Text>
-                                        </View>
-                                        <Text style={styles.channelLabel}>Gmail (Personal)</Text>
-                                        <Text style={styles.channelValue}>{profile.gmail_id}</Text>
-                                    </View>
-                                )}
-
-                                {profile?.outlook_id && (
-                                    <View style={styles.channelRow}>
-                                        <View style={[styles.channelBadge, { backgroundColor: COLORS.outlook + '20' }]}>
-                                            <Text style={[styles.channelBadgeText, { color: COLORS.outlook }]}>O</Text>
-                                        </View>
-                                        <Text style={styles.channelLabel}>Outlook (Work)</Text>
-                                        <Text style={styles.channelValue}>{profile.outlook_id}</Text>
-                                    </View>
-                                )}
-
-                                {profile?.webex_email && (
-                                    <View style={styles.channelRow}>
-                                        <View style={[styles.channelBadge, { backgroundColor: COLORS.webex + '20' }]}>
-                                            <Text style={[styles.channelBadgeText, { color: COLORS.webex }]}>W</Text>
-                                        </View>
-                                        <Text style={styles.channelLabel}>Webex</Text>
-                                        <Text style={styles.channelValue}>{profile.webex_email}</Text>
-                                    </View>
-                                )}
-
-                                {!profile?.gmail_id && !profile?.outlook_id && !profile?.webex_email && (
-                                    <Text style={styles.noChannels}>No accounts connected. Go to Settings to connect.</Text>
-                                )}
-                            </View>
-
-                            {/* Phone Numbers */}
-                            <View style={styles.section}>
-                                <Text style={styles.sectionLabel}>Phone Numbers</Text>
-                                {editMode ? (
-                                    <>
-                                        <View style={styles.inputRow}>
-                                            <Text style={styles.inputLabel}>Personal:</Text>
-                                            <TextInput
-                                                style={styles.phoneInput}
-                                                value={phonePersonal}
-                                                onChangeText={setPhonePersonal}
-                                                placeholder="+91 98765 43210"
-                                                placeholderTextColor={COLORS.textDim}
-                                            />
-                                        </View>
-                                        <View style={styles.inputRow}>
-                                            <Text style={styles.inputLabel}>Work:</Text>
-                                            <TextInput
-                                                style={styles.phoneInput}
-                                                value={phoneWork}
-                                                onChangeText={setPhoneWork}
-                                                placeholder="+91 98765 43210"
-                                                placeholderTextColor={COLORS.textDim}
-                                            />
-                                        </View>
-                                    </>
-                                ) : (
-                                    <>
-                                        {profile?.phone_personal && (
-                                            <Text style={styles.phoneText}>📱 Personal: {profile.phone_personal}</Text>
-                                        )}
-                                        {profile?.phone_work && (
-                                            <Text style={styles.phoneText}>📞 Work: {profile.phone_work}</Text>
-                                        )}
-                                        {!profile?.phone_personal && !profile?.phone_work && (
-                                            <Text style={styles.noChannels}>No phone numbers set</Text>
-                                        )}
-                                    </>
-                                )}
-                            </View>
-
-                            {/* Timezone */}
-                            <View style={styles.section}>
-                                <Text style={styles.sectionLabel}>Timezone</Text>
-                                {editMode ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={timezone}
-                                        onChangeText={setTimezone}
-                                        placeholder="Asia/Kolkata"
-                                        placeholderTextColor={COLORS.textDim}
-                                    />
-                                ) : (
-                                    <Text style={styles.valueText}>{timezone || 'Not set'}</Text>
-                                )}
-                            </View>
-                        </ScrollView>
-                    )}
-
-                    {/* Footer */}
-                    <View style={styles.footer}>
-                        {editMode ? (
-                            <>
-                                <TouchableOpacity style={styles.cancelButton} onPress={() => setEditMode(false)}>
-                                    <Text style={styles.cancelButtonText}>Cancel</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.saveButton} onPress={handleSave} disabled={saving}>
-                                    {saving ? (
-                                        <ActivityIndicator size="small" color="#fff" />
+                                {/* Bio */}
+                                <View style={styles.section}>
+                                    <Text style={styles.sectionLabel}>Bio</Text>
+                                    {editMode ? (
+                                        <TextInput
+                                            style={[styles.input, styles.bioInput]}
+                                            value={bio}
+                                            onChangeText={setBio}
+                                            placeholder="Tell us about yourself..."
+                                            placeholderTextColor={COLORS.textDim}
+                                            multiline
+                                        />
                                     ) : (
-                                        <Text style={styles.saveButtonText}>Save</Text>
+                                        <Text style={styles.bioText}>{bio || 'No bio set'}</Text>
                                     )}
-                                </TouchableOpacity>
-                            </>
-                        ) : (
-                            <TouchableOpacity style={styles.editButton} onPress={() => setEditMode(true)}>
-                                <Ionicons name="pencil" size={16} color="#fff" />
-                                <Text style={styles.editButtonText}>Edit Profile</Text>
-                            </TouchableOpacity>
-                        )}
-                    </View>
+                                </View>
+
+                                {/* Connected Accounts */}
+                                <View style={styles.section}>
+                                    <Text style={styles.sectionLabel}>Connected Accounts</Text>
+
+                                    {profile?.gmail_id && (
+                                        <View style={styles.channelRow}>
+                                            <View style={[styles.channelBadge, { backgroundColor: COLORS.gmail + '20' }]}>
+                                                <Text style={[styles.channelBadgeText, { color: COLORS.gmail }]}>G</Text>
+                                            </View>
+                                            <Text style={styles.channelLabel}>Gmail (Personal)</Text>
+                                            <Text style={styles.channelValue}>{profile.gmail_id}</Text>
+                                        </View>
+                                    )}
+
+                                    {profile?.outlook_id && (
+                                        <View style={styles.channelRow}>
+                                            <View style={[styles.channelBadge, { backgroundColor: COLORS.outlook + '20' }]}>
+                                                <Text style={[styles.channelBadgeText, { color: COLORS.outlook }]}>O</Text>
+                                            </View>
+                                            <Text style={styles.channelLabel}>Outlook (Work)</Text>
+                                            <Text style={styles.channelValue}>{profile.outlook_id}</Text>
+                                        </View>
+                                    )}
+
+                                    {profile?.webex_email && (
+                                        <View style={styles.channelRow}>
+                                            <View style={[styles.channelBadge, { backgroundColor: COLORS.webex + '20' }]}>
+                                                <Text style={[styles.channelBadgeText, { color: COLORS.webex }]}>W</Text>
+                                            </View>
+                                            <Text style={styles.channelLabel}>Webex</Text>
+                                            <Text style={styles.channelValue}>{profile.webex_email}</Text>
+                                        </View>
+                                    )}
+
+                                    {!profile?.gmail_id && !profile?.outlook_id && !profile?.webex_email && (
+                                        <Text style={styles.noChannels}>No accounts connected. Go to Settings to connect.</Text>
+                                    )}
+                                </View>
+
+                                {/* Phone Numbers */}
+                                <View style={styles.section}>
+                                    <Text style={styles.sectionLabel}>Phone Numbers</Text>
+                                    {editMode ? (
+                                        <>
+                                            <View style={styles.inputRow}>
+                                                <Text style={styles.inputLabel}>Personal:</Text>
+                                                <TextInput
+                                                    style={styles.phoneInput}
+                                                    value={phonePersonal}
+                                                    onChangeText={setPhonePersonal}
+                                                    placeholder="+91 98765 43210"
+                                                    placeholderTextColor={COLORS.textDim}
+                                                />
+                                            </View>
+                                            <View style={styles.inputRow}>
+                                                <Text style={styles.inputLabel}>Work:</Text>
+                                                <TextInput
+                                                    style={styles.phoneInput}
+                                                    value={phoneWork}
+                                                    onChangeText={setPhoneWork}
+                                                    placeholder="+91 98765 43210"
+                                                    placeholderTextColor={COLORS.textDim}
+                                                />
+                                            </View>
+                                        </>
+                                    ) : (
+                                        <>
+                                            {profile?.phone_personal && (
+                                                <Text style={styles.phoneText}>📱 Personal: {profile.phone_personal}</Text>
+                                            )}
+                                            {profile?.phone_work && (
+                                                <Text style={styles.phoneText}>📞 Work: {profile.phone_work}</Text>
+                                            )}
+                                            {!profile?.phone_personal && !profile?.phone_work && (
+                                                <Text style={styles.noChannels}>No phone numbers set</Text>
+                                            )}
+                                        </>
+                                    )}
+                                </View>
+
+                                {/* Timezone */}
+                                <View style={styles.section}>
+                                    <Text style={styles.sectionLabel}>Timezone</Text>
+                                    {editMode ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={timezone}
+                                            onChangeText={setTimezone}
+                                            placeholder="Asia/Kolkata"
+                                            placeholderTextColor={COLORS.textDim}
+                                        />
+                                    ) : (
+                                        <Text style={styles.valueText}>{timezone || 'Not set'}</Text>
+                                    )}
+                                </View>
+                            </ScrollView>
+
+                            {/* Footer */}
+                            <View style={styles.footer}>
+                                {editMode ? (
+                                    <>
+                                        <TouchableOpacity style={styles.cancelButton} onPress={() => setEditMode(false)}>
+                                            <Text style={styles.cancelButtonText}>Cancel</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.saveButton} onPress={handleSave} disabled={saving}>
+                                            {saving ? (
+                                                <ActivityIndicator size="small" color="#fff" />
+                                            ) : (
+                                                <Text style={styles.saveButtonText}>Save</Text>
+                                            )}
+                                        </TouchableOpacity>
+                                    </>
+                                ) : (
+                                    <TouchableOpacity style={styles.editButton} onPress={() => setEditMode(true)}>
+                                        <Ionicons name="pencil" size={16} color="#fff" />
+                                        <Text style={styles.editButtonText}>Edit Profile</Text>
+                                    </TouchableOpacity>
+                                )}
+                            </View>
+                        </View>
+                    )}
                 </View>
             </View>
         </Modal>

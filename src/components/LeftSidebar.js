@@ -22,8 +22,10 @@ const COLORS = {
 
 const NAV_ITEMS = [
     { id: 'chat', icon: '💬', label: 'Chat' },
+    { id: 'reminders', icon: '📋', label: 'Reminders' },
+    { id: 'routines', icon: '🔄', label: 'Routines' },
     { id: 'contacts', icon: '👥', label: 'Contacts' },
-    { id: 'documents', icon: '📄', label: 'Documents', disabled: true },
+    { id: 'contacts', icon: '👥', label: 'Contacts' },
     { id: 'search', icon: '🔍', label: 'Search', disabled: true },
 ];
 
@@ -75,28 +77,15 @@ export const LeftSidebar = ({
 
     return (
         <View style={[styles.sidebar, !expanded && styles.sidebarCollapsed]}>
-            {/* Profile Avatar - Top Left */}
-            <TouchableOpacity style={styles.profileSection} onPress={onProfilePress}>
-                <View style={styles.profileAvatar}>
-                    <Text style={styles.profileInitials}>{getInitials(displayName)}</Text>
-                </View>
-                {expanded && (
-                    <View style={styles.profileInfo}>
-                        <Text style={styles.profileName} numberOfLines={1}>{displayName}</Text>
-                        <Text style={styles.profileEmail} numberOfLines={1}>
-                            {userProfile?.gmail_id || userProfile?.outlook_id || 'Tap to set up'}
-                        </Text>
-                    </View>
-                )}
-            </TouchableOpacity>
-
-            {/* Logo/Brand */}
+            {/* Logo/Brand - Premium styling */}
             <View style={styles.brand}>
-                <Text style={styles.logo}>🧠</Text>
+                <View style={styles.logoContainer}>
+                    <Text style={styles.logo}>✦</Text>
+                </View>
                 {expanded && (
                     <View style={styles.brandText}>
                         <Text style={styles.brandName}>Chaetra</Text>
-                        <Text style={styles.brandTagline}>Your AI Second Brain</Text>
+                        <Text style={styles.brandTagline}>Think · Remember · Act</Text>
                     </View>
                 )}
             </View>
@@ -112,6 +101,31 @@ export const LeftSidebar = ({
                         isActive={activeView === item.id}
                     />
                 ))}
+                
+                {/* Apps Section Separator */}
+                <View style={[styles.sectionDivider, !expanded && { marginHorizontal: 10 }]} />
+                
+                {/* API Section */}
+                <View>
+                    {expanded ? (
+                        <Text style={styles.sectionTitle}>API</Text>
+                    ) : (
+                        <View style={styles.sectionDivider} />
+                    )}
+                    
+                    <NavItem
+                        item={{ id: 'api_map', icon: '🗺️', label: 'Component Map' }}
+                        expanded={expanded}
+                        onPress={onNavigate}
+                        isActive={activeView === 'api_map'}
+                    />
+                    <NavItem
+                        item={{ id: 'api_arch', icon: '📐', label: 'Architecture' }}
+                        expanded={expanded}
+                        onPress={onNavigate}
+                        isActive={activeView === 'api_arch'}
+                    />
+                </View>
             </View>
 
             {/* Spacer */}
@@ -186,33 +200,48 @@ const styles = StyleSheet.create({
         marginTop: 1,
     },
 
-    // Brand
+    // Brand - Premium styling
     brand: {
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 16,
-        paddingVertical: 12,
-        marginBottom: 24,
+        paddingVertical: 16,
+        marginBottom: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: COLORS.border,
+    },
+
+    logoContainer: {
+        width: 36,
+        height: 36,
+        borderRadius: 10,
+        backgroundColor: 'rgba(129, 140, 248, 0.15)',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     logo: {
-        fontSize: 28,
+        fontSize: 18,
+        color: '#818cf8',
     },
 
     brandText: {
-        marginLeft: 10,
+        marginLeft: 12,
     },
 
     brandName: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: '700',
         color: COLORS.text,
+        letterSpacing: 0.5,
     },
 
     brandTagline: {
-        fontSize: 11,
-        color: COLORS.textDim,
+        fontSize: 10,
+        color: COLORS.accent,
         marginTop: 2,
+        letterSpacing: 1,
+        textTransform: 'uppercase',
     },
 
     // Navigation
@@ -292,6 +321,23 @@ const styles = StyleSheet.create({
         color: COLORS.accent,
         fontWeight: '500',
         marginLeft: 10,
+    },
+    sectionDivider: {
+        height: 1,
+        backgroundColor: COLORS.border,
+        marginVertical: 10,
+        marginHorizontal: 16,
+    },
+    
+    sectionTitle: {
+        fontSize: 11,
+        fontWeight: '700',
+        color: COLORS.textDim,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        marginLeft: 16,
+        marginBottom: 8,
+        marginTop: 6,
     },
 });
 
