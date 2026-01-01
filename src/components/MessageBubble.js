@@ -1,292 +1,128 @@
 // components/MessageBubble.js
+// ChatGPT-style compact message bubbles
+
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native';
+import { View, Text, Image, StyleSheet, useWindowDimensions, Platform } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 import Markdown from 'react-native-markdown-display';
 import Icon from 'react-native-vector-icons/Feather';
 import { SourcesAndTraceFooter } from './Sources';
 
-/**
- * Props:
- *  - item: Message { id, sender, text, sources[], attachmentName, trace[], isNew }
- */
-
-// Typewriter effect for streaming feel
-const TypewriterText = ({ text, onComplete, speed = 15 }) => {
-    const [displayedText, setDisplayedText] = useState('');
-    const [isComplete, setIsComplete] = useState(false);
-    const indexRef = useRef(0);
-
-    useEffect(() => {
-        if (!text) return;
-
-        // Reset on new text
-        indexRef.current = 0;
-        setDisplayedText('');
-        setIsComplete(false);
-
-        const timer = setInterval(() => {
-            if (indexRef.current < text.length) {
-                // Add 1-3 characters at a time for faster appearance
-                const charsToAdd = Math.min(3, text.length - indexRef.current);
-                setDisplayedText(text.slice(0, indexRef.current + charsToAdd));
-                indexRef.current += charsToAdd;
-            } else {
-                clearInterval(timer);
-                setIsComplete(true);
-                onComplete?.();
-            }
-        }, speed);
-
-        return () => clearInterval(timer);
-    }, [text, speed, onComplete]);
-
-    return displayedText;
-};
-
-// Pastel color palette (soft, light tones)
+// ChatGPT-inspired color palette
 const COLORS = {
-    accent: '#7c7fdb',      // Pastel indigo
-    accentLight: '#a5a8ed',
-    bgCard: '#1a1a2e',
-    bgHover: '#252540',
-    bgCode: '#0f0f1a',
-    text: '#e2e8f0',
-    textDim: '#94a3b8',
-    border: '#334155',
-    // Pastel source colors
-    gmail: '#e8a5a0',       // Pastel coral
-    url: '#a5c4e8',         // Pastel blue
-    document: '#a5e8c0',    // Pastel mint
-    memory: '#c4a5e8',      // Pastel lavender
-    webex: '#a5dde8',       // Pastel cyan
-    calendar: '#a5b8e8',    // Pastel periwinkle
+    bgDark: '#212121',
+    bgMessage: '#2f2f2f',
+    bgUser: '#2f2f2f',
+    text: '#ececf1',
+    textDim: '#b4b4b4',
+    accent: '#10a37f',
+    accentLight: '#1a7f64',
+    border: '#444',
+    code: '#1e1e1e',
+    // Source colors (muted)
+    gmail: '#f87171',
+    url: '#60a5fa',
+    document: '#4ade80',
+    memory: '#a78bfa',
+    webex: '#22d3ee',
+    calendar: '#818cf8',
 };
 
-// Check if text contains actual HTML tags (not email addresses)
+// Check if text contains actual HTML tags
 const containsHtml = (text) => {
     if (!text) return false;
-    // Match only actual HTML tags like <div>, <p>, <br>, <span>, etc.
     const htmlTagPattern = /<(div|p|br|span|strong|em|b|i|ul|ol|li|table|tr|td|th|a|img|h[1-6]|pre|code|blockquote)[^>]*>/i;
     return htmlTagPattern.test(text);
 };
 
-// HTML styles for react-native-render-html
+// HTML styles
 const htmlTagsStyles = {
-    body: {
-        color: COLORS.text,
-        fontSize: 15,
-        lineHeight: 24,
-    },
-    p: {
-        color: COLORS.text,
-        fontSize: 15,
-        lineHeight: 24,
-        marginTop: 0,
-        marginBottom: 12,
-    },
-    h1: {
-        color: COLORS.text,
-        fontSize: 24,
-        fontWeight: '700',
-        marginTop: 16,
-        marginBottom: 8,
-    },
-    h2: {
-        color: COLORS.text,
-        fontSize: 20,
-        fontWeight: '600',
-        marginTop: 14,
-        marginBottom: 6,
-    },
-    h3: {
-        color: COLORS.text,
-        fontSize: 17,
-        fontWeight: '600',
-        marginTop: 12,
-        marginBottom: 4,
-    },
-    a: {
-        color: COLORS.accentLight,
-        textDecorationLine: 'underline',
-    },
-    strong: {
-        fontWeight: '700',
-        color: COLORS.text,
-    },
-    em: {
-        fontStyle: 'italic',
-    },
+    body: { color: COLORS.text, fontSize: 15, lineHeight: 24 },
+    p: { color: COLORS.text, fontSize: 15, lineHeight: 24, marginTop: 0, marginBottom: 8 },
+    h1: { color: COLORS.text, fontSize: 22, fontWeight: '600', marginTop: 12, marginBottom: 6 },
+    h2: { color: COLORS.text, fontSize: 18, fontWeight: '600', marginTop: 10, marginBottom: 4 },
+    h3: { color: COLORS.text, fontSize: 16, fontWeight: '600', marginTop: 8, marginBottom: 4 },
+    a: { color: COLORS.accent, textDecorationLine: 'underline' },
+    strong: { fontWeight: '600', color: COLORS.text },
+    em: { fontStyle: 'italic' },
     code: {
-        backgroundColor: COLORS.bgCode,
-        color: COLORS.accentLight,
+        backgroundColor: COLORS.code,
+        color: '#e5e5e5',
         fontFamily: 'monospace',
         fontSize: 13,
-        paddingHorizontal: 6,
-        paddingVertical: 2,
-        borderRadius: 4,
+        paddingHorizontal: 4,
+        paddingVertical: 1,
+        borderRadius: 3,
     },
     pre: {
-        backgroundColor: COLORS.bgCode,
-        borderRadius: 8,
+        backgroundColor: COLORS.code,
+        borderRadius: 6,
         padding: 12,
-        marginVertical: 8,
-        borderWidth: 1,
-        borderColor: COLORS.border,
+        marginVertical: 6,
     },
     blockquote: {
-        backgroundColor: COLORS.bgHover,
-        borderLeftWidth: 4,
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        borderLeftWidth: 3,
         borderLeftColor: COLORS.accent,
-        paddingLeft: 12,
-        paddingVertical: 8,
-        marginVertical: 8,
-        borderRadius: 4,
+        paddingLeft: 10,
+        paddingVertical: 4,
+        marginVertical: 6,
     },
-    ul: {
-        marginVertical: 8,
-    },
-    ol: {
-        marginVertical: 8,
-    },
-    li: {
-        color: COLORS.text,
-        fontSize: 15,
-        lineHeight: 24,
-        marginVertical: 4,
-    },
-    hr: {
-        backgroundColor: COLORS.border,
-        height: 1,
-        marginVertical: 16,
-    },
+    ul: { marginVertical: 4 },
+    ol: { marginVertical: 4 },
+    li: { color: COLORS.text, fontSize: 15, lineHeight: 24, marginVertical: 2 },
 };
 
 // Markdown styling
 const markdownStyles = StyleSheet.create({
-    body: {
-        color: COLORS.text,
-        fontSize: 15,
-        lineHeight: 24,
-    },
-    heading1: {
-        color: COLORS.text,
-        fontSize: 24,
-        fontWeight: '700',
-        marginTop: 16,
-        marginBottom: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: COLORS.border,
-        paddingBottom: 8,
-    },
-    heading2: {
-        color: COLORS.text,
-        fontSize: 20,
-        fontWeight: '600',
-        marginTop: 14,
-        marginBottom: 6,
-    },
-    heading3: {
-        color: COLORS.text,
-        fontSize: 17,
-        fontWeight: '600',
-        marginTop: 12,
-        marginBottom: 4,
-    },
-    paragraph: {
-        marginTop: 0,
-        marginBottom: 12,
-    },
-    strong: {
-        fontWeight: '700',
-        color: COLORS.text,
-    },
-    em: {
-        fontStyle: 'italic',
-    },
-    link: {
-        color: COLORS.accentLight,
-        textDecorationLine: 'underline',
-    },
+    body: { color: COLORS.text, fontSize: 15, lineHeight: 24 },
+    heading1: { color: COLORS.text, fontSize: 22, fontWeight: '600', marginTop: 12, marginBottom: 6 },
+    heading2: { color: COLORS.text, fontSize: 18, fontWeight: '600', marginTop: 10, marginBottom: 4 },
+    heading3: { color: COLORS.text, fontSize: 16, fontWeight: '600', marginTop: 8, marginBottom: 4 },
+    paragraph: { marginTop: 0, marginBottom: 8 },
+    strong: { fontWeight: '600', color: COLORS.text },
+    em: { fontStyle: 'italic' },
+    link: { color: COLORS.accent, textDecorationLine: 'underline' },
     blockquote: {
-        backgroundColor: COLORS.bgHover,
-        borderLeftWidth: 4,
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        borderLeftWidth: 3,
         borderLeftColor: COLORS.accent,
-        paddingLeft: 12,
-        paddingVertical: 8,
-        marginVertical: 8,
-        borderRadius: 4,
+        paddingLeft: 10,
+        paddingVertical: 4,
+        marginVertical: 6,
     },
     code_inline: {
-        backgroundColor: COLORS.bgCode,
-        color: COLORS.accentLight,
+        backgroundColor: COLORS.code,
+        color: '#e5e5e5',
         fontFamily: 'monospace',
         fontSize: 13,
-        paddingHorizontal: 6,
-        paddingVertical: 2,
-        borderRadius: 4,
+        paddingHorizontal: 4,
+        paddingVertical: 1,
+        borderRadius: 3,
     },
     code_block: {
-        backgroundColor: COLORS.bgCode,
-        borderRadius: 8,
+        backgroundColor: COLORS.code,
+        borderRadius: 6,
         padding: 12,
-        marginVertical: 8,
-        borderWidth: 1,
-        borderColor: COLORS.border,
+        marginVertical: 6,
     },
     fence: {
-        backgroundColor: COLORS.bgCode,
-        borderRadius: 8,
+        backgroundColor: COLORS.code,
+        borderRadius: 6,
         padding: 12,
-        marginVertical: 8,
-        borderWidth: 1,
-        borderColor: COLORS.border,
+        marginVertical: 6,
         fontFamily: 'monospace',
         fontSize: 13,
         color: COLORS.text,
     },
-    list_item: {
-        marginVertical: 4,
-    },
-    bullet_list: {
-        marginVertical: 8,
-    },
-    ordered_list: {
-        marginVertical: 8,
-    },
-    bullet_list_icon: {
-        color: COLORS.accent,
-        fontSize: 8,
-        marginRight: 8,
-    },
-    ordered_list_icon: {
-        color: COLORS.accent,
-        fontWeight: '600',
-        marginRight: 8,
-    },
+    list_item: { marginVertical: 2 },
+    bullet_list: { marginVertical: 4 },
+    ordered_list: { marginVertical: 4 },
+    bullet_list_icon: { color: COLORS.textDim, fontSize: 6, marginRight: 8 },
+    ordered_list_icon: { color: COLORS.textDim, fontWeight: '500', marginRight: 8 },
 });
 
-// --- Style Helper ---
-const getBubbleStyles = (item, primaryImageSource) => {
-    const isUser = item.sender === 'user';
-    const bubbleStyle = [bubbleStyles.bubble];
-
-    if (isUser) {
-        bubbleStyle.push(bubbleStyles.bubbleUser);
-        bubbleStyle.push({ borderBottomRightRadius: 4 });
-    } else {
-        bubbleStyle.push(bubbleStyles.bubbleBot);
-        bubbleStyle.push({ borderBottomLeftRadius: 4 });
-    }
-
-    if (primaryImageSource) {
-        bubbleStyle.push({ marginTop: 8 });
-    }
-
-    return bubbleStyle;
-};
-
-// --- Content Renderers ---
+// Content renderers
 const HtmlContent = ({ text, width }) => (
     <RenderHtml
         contentWidth={width - 48}
@@ -297,40 +133,21 @@ const HtmlContent = ({ text, width }) => (
 );
 
 const MarkdownContent = ({ text }) => (
-    <Markdown style={markdownStyles}>
-        {text}
-    </Markdown>
+    <Markdown style={markdownStyles}>{text}</Markdown>
 );
 
 const RenderTextContent = ({ text, isUser, width }) => {
     if (isUser) {
-        // User messages: plain text, no formatting
-        return (
-            <View style={{ paddingHorizontal: 14, paddingVertical: 12 }}>
-                <Text style={bubbleStyles.userText}>{text}</Text>
-            </View>
-        );
+        return <Text style={styles.userText}>{text}</Text>;
     }
-
-    // Bot messages: detect HTML vs Markdown
     const isHtml = containsHtml(text);
-
-    return (
-        <View style={{ paddingHorizontal: 14, paddingVertical: 12 }}>
-            {isHtml ? (
-                <HtmlContent text={text} width={width} />
-            ) : (
-                <MarkdownContent text={text} />
-            )}
-        </View>
-    );
+    return isHtml ? <HtmlContent text={text} width={width} /> : <MarkdownContent text={text} />;
 };
 
-// Message Header - shows source/process info at top (e.g., "📧 Searched Gmail • 📄 Read Q4 Reports")
+// Source activity header
 const MessageHeader = ({ sources }) => {
     if (!sources || sources.length === 0) return null;
 
-    // Build activity descriptions from sources
     const activities = [];
     const seenTypes = new Set();
 
@@ -338,19 +155,17 @@ const MessageHeader = ({ sources }) => {
         if (source.source_type === 'memory_item') {
             const snippet = (source.snippet || '').toLowerCase();
             if ((snippet.includes('gmail') || snippet.includes('email')) && !seenTypes.has('gmail')) {
-                activities.push({ icon: '📧', text: 'Searched Gmail', color: COLORS.gmail });
+                activities.push({ icon: '📧', text: 'Gmail', color: COLORS.gmail });
                 seenTypes.add('gmail');
             } else if (!seenTypes.has('memory')) {
-                activities.push({ icon: '🧠', text: 'Queried memory', color: COLORS.memory });
+                activities.push({ icon: '🧠', text: 'Memory', color: COLORS.memory });
                 seenTypes.add('memory');
             }
         } else if (source.source_type === 'url_content' && !seenTypes.has('url')) {
-            const host = source.url ? new URL(source.url).hostname : 'URL';
-            activities.push({ icon: '🔗', text: `Fetched URL`, extra: source.from_cache ? '• Cached 48h' : '', color: COLORS.url });
+            activities.push({ icon: '🔗', text: 'Web', color: COLORS.url });
             seenTypes.add('url');
         } else if (source.source_type === 'document_chunk' && !seenTypes.has('doc')) {
-            const title = source.document_title || 'document';
-            activities.push({ icon: '📄', text: `Read ${title}`, color: COLORS.document });
+            activities.push({ icon: '📄', text: 'Docs', color: COLORS.document });
             seenTypes.add('doc');
         }
     });
@@ -358,49 +173,15 @@ const MessageHeader = ({ sources }) => {
     if (activities.length === 0) return null;
 
     return (
-        <View style={bubbleStyles.messageHeader}>
+        <View style={styles.messageHeader}>
             {activities.map((activity, i) => (
-                <Text key={i} style={[bubbleStyles.headerActivity, { color: activity.color }]}>
-                    {i > 0 ? ' • ' : ''}{activity.icon} {activity.text} {activity.extra || ''}
-                </Text>
+                <View key={i} style={[styles.sourcePill, { backgroundColor: activity.color + '20' }]}>
+                    <Text style={styles.sourcePillText}>{activity.icon} {activity.text}</Text>
+                </View>
             ))}
         </View>
     );
 };
-
-// Embedded URL Card (for links in content)
-const EmbeddedUrlCard = ({ source }) => {
-    if (!source || source.source_type !== 'url_content') return null;
-
-    const hostname = source.url ? new URL(source.url).hostname : '';
-    const title = source.page_title || hostname;
-
-    return (
-        <View style={bubbleStyles.urlCard}>
-            <View style={bubbleStyles.urlCardIcon}>
-                <Text style={{ fontSize: 18 }}>🔗</Text>
-            </View>
-            <View style={bubbleStyles.urlCardContent}>
-                <Text style={bubbleStyles.urlCardTitle} numberOfLines={1}>{title}</Text>
-                <Text style={bubbleStyles.urlCardDomain}>{hostname}</Text>
-            </View>
-        </View>
-    );
-};
-
-const renderAttachment = (attachmentName) => (
-    <View style={bubbleStyles.attachmentRow}>
-        <Icon name="paperclip" size={16} color={COLORS.text} />
-        <Text style={bubbleStyles.attachmentText} numberOfLines={1}>{attachmentName}</Text>
-    </View>
-);
-
-const renderFooter = (sources, trace) => (
-    <View style={{ paddingHorizontal: 12, paddingBottom: 8 }}>
-        <SourcesAndTraceFooter sources={sources} trace={trace} />
-    </View>
-);
-
 
 export const MessageBubble = ({ item }) => {
     const { width } = useWindowDimensions();
@@ -410,135 +191,140 @@ export const MessageBubble = ({ item }) => {
     const hasFooterContent = allSources.length > 0 || (item.trace && item.trace.length > 0);
     const isUser = item.sender === 'user';
 
-    // Find URL sources for embedded cards
-    const urlSources = allSources.filter(s => s.source_type === 'url_content');
-
     return (
-        <View style={[bubbleStyles.row, { alignItems: isUser ? 'flex-end' : 'flex-start' }]}>
-            <View style={[
-                bubbleStyles.inner,
-                item.sender === 'chaetra' && { width: '100%' }
-            ]}>
-                {primaryImageSource && (
-                    <View style={bubbleStyles.responseImageContainer}>
-                        <Image source={{ uri: primaryImageSource.preview_url }} style={bubbleStyles.responseImage} />
-                    </View>
-                )}
+        <View style={[styles.messageRow, isUser && styles.messageRowUser]}>
+            {isUser ? (
+                // User message - right aligned bubble with left-aligned text
+                <View style={[styles.userBubble, { maxWidth: Math.min(480, width - 64) }]}>
+                    <RenderTextContent text={item.text} isUser={isUser} width={width} />
+                </View>
+            ) : (
+                // Bot message - full width, no bubble
+                <View style={[styles.botContainer, { maxWidth: Math.min(768, width - 32) }]}>
+                    {/* Source header */}
+                    {allSources.length > 0 && <MessageHeader sources={allSources} />}
 
-                <View style={getBubbleStyles(item, primaryImageSource)}>
-                    {/* Header: Source/Process info (e.g., "📧 Searched Gmail • 🔗 Fetched URL") */}
-                    {item.sender === 'chaetra' && allSources.length > 0 && (
-                        <MessageHeader sources={allSources} />
+                    {/* Image */}
+                    {primaryImageSource && (
+                        <View style={styles.imageContainer}>
+                            <Image source={{ uri: primaryImageSource.preview_url }} style={styles.responseImage} />
+                        </View>
                     )}
 
-                    {/* Content */}
-                    {hasTextContent && <RenderTextContent text={item.text} isUser={isUser} width={width} />}
+                    {/* Text content */}
+                    {hasTextContent && (
+                        <View style={styles.textContent}>
+                            <RenderTextContent text={item.text} isUser={isUser} width={width} />
+                        </View>
+                    )}
 
-                    {/* URL sources are now shown ONLY in compact pill at footer, not as individual cards */}
+                    {/* Attachment */}
+                    {item.attachmentName && (
+                        <View style={styles.attachmentRow}>
+                            <Icon name="paperclip" size={14} color={COLORS.textDim} />
+                            <Text style={styles.attachmentText}>{item.attachmentName}</Text>
+                        </View>
+                    )}
 
-                    {item.attachmentName && renderAttachment(item.attachmentName)}
-
-                    {/* Footer: Source pills with counts */}
-                    {item.sender === 'chaetra' && hasFooterContent && renderFooter(allSources, item.trace || [])}
+                    {/* Footer with sources */}
+                    {hasFooterContent && (
+                        <View style={styles.footer}>
+                            <SourcesAndTraceFooter sources={allSources} trace={item.trace || []} />
+                        </View>
+                    )}
                 </View>
-            </View>
+            )}
         </View>
     );
 };
 
-const bubbleStyles = StyleSheet.create({
-    row: { width: '100%', paddingHorizontal: 10 },
-    inner: { maxWidth: '85%' },
-    responseImageContainer: {
+const styles = StyleSheet.create({
+    messageRow: {
         width: '100%',
-        borderRadius: 12,
-        overflow: 'hidden',
-        backgroundColor: '#000',
+        alignItems: 'flex-start',
+        paddingHorizontal: 16,
+        paddingVertical: 8,
     },
+
+    messageRowUser: {
+        alignItems: 'flex-end',
+    },
+
+    userBubble: {
+        backgroundColor: '#2f2f2f',
+        borderRadius: 16,
+        borderBottomRightRadius: 4,
+        paddingHorizontal: 14,
+        paddingVertical: 10,
+    },
+
+    botContainer: {
+        width: '100%',
+    },
+
+    messageHeader: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 6,
+        marginBottom: 8,
+    },
+
+    sourcePill: {
+        paddingHorizontal: 8,
+        paddingVertical: 3,
+        borderRadius: 10,
+    },
+
+    sourcePillText: {
+        fontSize: 11,
+        color: COLORS.text,
+        fontWeight: '500',
+    },
+
+    imageContainer: {
+        borderRadius: 8,
+        overflow: 'hidden',
+        marginBottom: 8,
+    },
+
     responseImage: {
         width: '100%',
         aspectRatio: 16 / 9,
         resizeMode: 'cover',
     },
-    bubble: {
-        borderRadius: 16,
-        overflow: 'hidden',
+
+    textContent: {
+        // No extra padding - content flows naturally
     },
-    // User messages: accent purple (matching vision)
-    bubbleUser: {
-        backgroundColor: COLORS.accent,
-    },
-    // Bot messages: card background (matching vision)
-    bubbleBot: {
-        backgroundColor: COLORS.bgCard,
-    },
+
     userText: {
-        color: '#ffffff',
-        lineHeight: 22,
+        color: COLORS.text,
         fontSize: 15,
+        lineHeight: 24,
     },
+
     attachmentRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: COLORS.bgHover,
-        padding: 10,
-        borderRadius: 8,
-        marginHorizontal: 12,
-        marginBottom: 8,
-    },
-    attachmentText: { color: COLORS.text, fontSize: 12, marginLeft: 8, flex: 1 },
-
-    // Message Header (source/process info at top)
-    messageHeader: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        paddingHorizontal: 14,
-        paddingTop: 10,
-        paddingBottom: 4,
-    },
-
-    headerActivity: {
-        fontSize: 11,
-        fontWeight: '500',
-    },
-
-    // Embedded URL Card
-    urlCard: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: COLORS.bgHover,
-        borderRadius: 10,
-        padding: 12,
-        marginHorizontal: 14,
+        gap: 6,
         marginTop: 8,
-        borderLeftWidth: 3,
-        borderLeftColor: COLORS.url,
+        padding: 8,
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        borderRadius: 6,
     },
 
-    urlCardIcon: {
-        width: 40,
-        height: 40,
-        borderRadius: 8,
-        backgroundColor: COLORS.url + '20',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 12,
-    },
-
-    urlCardContent: {
+    attachmentText: {
+        color: COLORS.textDim,
+        fontSize: 12,
         flex: 1,
     },
 
-    urlCardTitle: {
-        fontSize: 13,
-        fontWeight: '600',
-        color: COLORS.text,
-    },
-
-    urlCardDomain: {
-        fontSize: 11,
-        color: COLORS.textDim,
-        marginTop: 2,
+    footer: {
+        marginTop: 12,
+        paddingTop: 8,
+        borderTopWidth: 1,
+        borderTopColor: 'rgba(255,255,255,0.08)',
     },
 });
+
+export default MessageBubble;

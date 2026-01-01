@@ -79,7 +79,8 @@ const SERVICES = [
         name: 'Calendar',
         iconName: 'calendar',
         color: COLORS.calendar,
-        comingSoon: true,
+        authEndpoint: '/api/v1/auth/google/login-desktop?scope=calendar',
+        statusEndpoint: '/api/v1/channels/calendar/status',
     },
 ];
 

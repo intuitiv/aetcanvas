@@ -12,20 +12,21 @@ import {
     ActivityIndicator,
     Modal,
     ScrollView,
+    Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { API_BASE_URL } from '../services/api';
 
 const COLORS = {
-    bg: '#0f0f1a',
-    panel: '#1a1a2e',
-    card: '#252540',
-    border: 'rgba(99, 102, 241, 0.2)',
-    text: '#e2e8f0',
-    textDim: '#9ca3af',
-    accent: '#6366f1',
-    accentBg: 'rgba(99, 102, 241, 0.15)',
-    success: '#22c55e',
+    bg: '#212121',
+    panel: '#2f2f2f',
+    card: '#3a3a3a',
+    border: 'rgba(255, 255, 255, 0.1)',
+    text: '#ececf1',
+    textDim: '#b4b4b4',
+    accent: '#10a37f',
+    accentBg: 'rgba(16, 163, 127, 0.15)',
+    success: '#10b981',
     warning: '#f59e0b',
     danger: '#ef4444',
     gmail: '#ea4335',
@@ -525,6 +526,18 @@ export const ContactsTab = ({ visible }) => {
     const [filter, setFilter] = useState('all'); // all, favorites, spam
     const [selectedContact, setSelectedContact] = useState(null);
     const [detailVisible, setDetailVisible] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width);
+
+    // Track window width for responsive layout
+    useEffect(() => {
+        const subscription = Dimensions.addEventListener('change', ({ window }) => {
+            setWindowWidth(window.width);
+        });
+        return () => subscription?.remove();
+    }, []);
+
+    // Determine number of columns based on width
+    const numColumns = windowWidth < 768 ? 1 : windowWidth < 1024 ? 2 : 3;
 
     const fetchContacts = useCallback(async () => {
         setLoading(true);
@@ -691,9 +704,9 @@ export const ContactsTab = ({ visible }) => {
                 <FlatList
                     data={contacts}
                     keyExtractor={item => item.id}
-                    numColumns={3}
-                    key="grid-3"
-                    columnWrapperStyle={styles.gridRow}
+                    numColumns={numColumns}
+                    key={`grid-${numColumns}`}
+                    columnWrapperStyle={numColumns > 1 ? styles.gridRow : undefined}
                     renderItem={({ item }) => (
                         <ContactItem
                             contact={item}

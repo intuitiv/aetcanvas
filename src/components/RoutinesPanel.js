@@ -15,12 +15,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { API_BASE_URL } from '../services/api';
 
 const COLORS = {
-    bg: '#0f0f1a',
-    panel: '#1a1a2e',
-    border: 'rgba(99, 102, 241, 0.2)',
-    text: '#e2e8f0',
-    textDim: '#9ca3af',
-    accent: '#6366f1',
+    bg: '#212121',
+    panel: '#2f2f2f',
+    border: 'rgba(255, 255, 255, 0.1)',
+    text: '#ececf1',
+    textDim: '#b4b4b4',
+    accent: '#10a37f',
     success: '#10b981',
     warning: '#f59e0b',
     error: '#ef4444',

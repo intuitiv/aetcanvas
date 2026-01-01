@@ -58,7 +58,6 @@ const SERVICES = [
         description: 'Google Calendar events',
         authEndpoint: '/api/v1/auth/google/login-desktop?scope=calendar',
         statusEndpoint: '/api/v1/channels/calendar/status',
-        comingSoon: true,
     },
 ];
 

@@ -14,24 +14,24 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { API_BASE } from '../services/api';
 
-// Pastel color palette
+// ChatGPT-style color palette (matching sidebar)
 const COLORS = {
-    bg: '#0f0f1a',
-    panel: '#1a1a2e',
-    border: 'rgba(99, 102, 241, 0.2)',
-    text: '#e2e8f0',
-    textDim: '#9ca3af',
+    bg: '#171717',           // Matches left sidebar
+    panel: '#171717',
+    border: 'rgba(255, 255, 255, 0.1)',
+    text: '#ececf1',
+    textDim: '#b4b4b4',
     success: '#10b981',
     warning: '#f59e0b',
-    accent: '#7c7fdb',
-    // Pastel source colors
-    gmail: '#e8a5a0',       // Pastel coral
-    webex: '#a5dde8',       // Pastel cyan
-    calendar: '#a5b8e8',    // Pastel periwinkle
-    url: '#a5c4e8',         // Pastel blue
-    file: '#a5e8c0',        // Pastel mint
-    memory: '#c4a5e8',      // Pastel lavender
-    outlook: '#a5b8e8',     // Pastel blue (Microsoft)
+    accent: '#10a37f',       // ChatGPT green
+    // Source colors (muted)
+    gmail: '#f87171',
+    webex: '#22d3ee',
+    calendar: '#818cf8',
+    url: '#60a5fa',
+    file: '#4ade80',
+    memory: '#a78bfa',
+    outlook: '#60a5fa',
 };
 
 
@@ -79,7 +79,7 @@ const SectionHeader = ({ title }) => (
     </View>
 );
 
-// Source Item in "Sources in Conversation"
+// Source Item in "Sources in Conversation" - Styled to match Connections
 const SourceItem = ({ source }) => {
     const getIconAndColor = () => {
         switch (source.type) {
@@ -100,8 +100,10 @@ const SourceItem = ({ source }) => {
     const { iconName, color } = getIconAndColor();
 
     return (
-        <View style={[styles.sourceItem, { borderLeftColor: color }]}>
-            <Ionicons name={iconName} size={14} color={color} style={{ marginRight: 8 }} />
+        <View style={styles.connectionItem}> 
+            <View style={[styles.connectionIcon, { backgroundColor: color + '20' }]}>
+                <Ionicons name={iconName} size={16} color={color} />
+            </View>
             <View style={styles.sourceInfo}>
                 <Text style={styles.sourceName} numberOfLines={1}>{source.name}</Text>
                 {source.detail && (
@@ -405,29 +407,27 @@ const styles = StyleSheet.create({
     },
 
     sourceItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingVertical: 8,
-        paddingHorizontal: 10,
-        backgroundColor: COLORS.panel,
-        borderRadius: 8,
-        marginBottom: 6,
-        borderLeftWidth: 3,
+        // Redundant, removed
     },
 
     sourceIcon: {
-        fontSize: 14,
-        marginRight: 8,
+        // Redundant, removed
     },
 
     sourceInfo: {
         flex: 1,
+        marginLeft: 10,
     },
 
     sourceName: {
-        fontSize: 12,
+        fontSize: 13,
         color: COLORS.text,
-        fontWeight: '500',
+        fontWeight: '500', // Matches connectionName weight? check lines 469
+        // connectionName default is normal? No, 470 says color only, no weight specified?
+        // text component default is normal.
+        // Let's match line 346 connectedText is 500. 
+        // connectionName line 466: fontSize 13, color text.
+        // consistent looks good.
     },
 
     sourceDetail: {
@@ -444,12 +444,11 @@ const styles = StyleSheet.create({
     connectionItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 8,
-        paddingHorizontal: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
         backgroundColor: COLORS.panel,
         borderRadius: 8,
         marginBottom: 6,
-        borderLeftWidth: 3,
     },
 
     connectionIcon: {
@@ -497,6 +496,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: COLORS.accent,
         fontWeight: '600',
+    },
+
+    lastSyncText: {
+        fontSize: 10,
+        color: COLORS.textDim,
+        marginLeft: 6,
     },
 });
 

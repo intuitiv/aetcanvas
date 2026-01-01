@@ -29,6 +29,7 @@ import { ProfileModal } from "./src/components/ProfileModal";
 import { MobileBottomNav } from "./src/components/MobileBottomNav";
 import { MobileRightPanelSheet } from "./src/components/MobileRightPanelSheet";
 import { RoutinesPanel } from "./src/components/RoutinesPanel";
+import { RemindersPanel } from "./src/components/RemindersPanel";
 import { ApiDocsPanel } from "./src/components/ApiDocsPanel";
 import { API_BASE_URL } from "./src/services/api";
 
@@ -248,6 +249,8 @@ export default function App() {
                         onNavigate={(id) => setActiveView(id)}
                         onBodyMapPress={() => setBodyMapVisible(true)}
                         onProfilePress={() => setProfileVisible(true)}
+                        onNewChat={handleNewChat}
+                        onNotificationPress={handleNotificationPress}
                         activeView={activeView}
                         userProfile={userProfile}
                     />
@@ -277,6 +280,14 @@ export default function App() {
                                     setProfileVisible(true);
                                     setLeftSidebarExpanded(false);
                                 }}
+                                onNewChat={() => {
+                                    handleNewChat();
+                                    setLeftSidebarExpanded(false);
+                                }}
+                                onNotificationPress={() => {
+                                    handleNotificationPress();
+                                    setLeftSidebarExpanded(false);
+                                }}
                                 activeView={activeView}
                                 userProfile={userProfile}
                                 isMobileOverlay={true}
@@ -288,19 +299,17 @@ export default function App() {
 
                 {/* Main Content Area */}
                 <View style={styles.mainArea}>
-                    {/* Header */}
-                    <Header
-                        showMenuButton={isMobile}
-                        onMenuPress={() => setLeftSidebarExpanded(!leftSidebarExpanded)}
-                        onNewChat={handleNewChat}
-                        onNotificationPress={handleNotificationPress}
-                        onProfilePress={() => setProfileVisible(true)}
-                        onSearch={(q) => console.log('Search:', q)}
-                        activeView={activeView}
-                        userProfile={userProfile}
-                        isConnected={isConnected}
-                    />
-
+                    {/* Mobile Header with hamburger */}
+                    {isMobile && (
+                        <Header
+                            onMenuPress={() => setLeftSidebarExpanded(true)}
+                            onNewChat={handleNewChat}
+                            onProfilePress={() => setProfileVisible(true)}
+                            activeView={activeView}
+                            userProfile={userProfile}
+                            showMenuButton={true}
+                        />
+                    )}
 
                     {/* Main Content - Chat, Contacts, Reminders, Routines, or Docs */}
                     {activeView === 'contacts' ? (
@@ -318,6 +327,7 @@ export default function App() {
                         <KeyboardAvoidingView
                             behavior={Platform.OS === "ios" ? "padding" : "height"}
                             style={styles.flex}
+                            keyboardVerticalOffset={Platform.OS === "ios" ? 44 : 0}
                         >
                             <View style={styles.chatArea}>
                                 {/* Messages */}
@@ -423,7 +433,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#0f0f1a"
+        backgroundColor: "#212121"
     },
 
     flex: {
@@ -466,16 +476,16 @@ const styles = StyleSheet.create({
     thinkingBubble: {
         maxWidth: "85%",
         padding: 12,
-        backgroundColor: "#1a1a2e",
+        backgroundColor: "#2f2f2f",
         borderRadius: 16,
         borderBottomLeftRadius: 4,
     },
 
     traceWrapper: {
         padding: 12,
-        backgroundColor: "#1a1a2e",
+        backgroundColor: "#2f2f2f",
         borderTopWidth: 1,
-        borderColor: "#333",
+        borderColor: "#4444",
     },
 
     // Mobile overlay styles

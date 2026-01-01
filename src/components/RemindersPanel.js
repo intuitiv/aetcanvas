@@ -18,20 +18,20 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { API_BASE_URL } from '../services/api';
 
-// Pastel color palette - soft geeky style
+// ChatGPT-style color palette
 const COLORS = {
-    bg: '#0f0f1a',
-    card: '#1a1a2e',
-    cardHover: '#252540',
-    text: '#e2e8f0',
-    textSecondary: '#9ca3af',
-    blue: '#818cf8',      // pastel indigo
-    green: '#6ee7b7',     // pastel mint
-    orange: '#fbbf24',    // pastel amber
-    red: '#f87171',       // pastel coral
-    gray: '#4b5563',
-    separator: '#2d2d4a',
-    accent: '#a78bfa',    // pastel violet
+    bg: '#212121',
+    card: '#2f2f2f',
+    cardHover: '#3a3a3a',
+    text: '#ececf1',
+    textSecondary: '#b4b4b4',
+    blue: '#10a37f',      // ChatGPT green
+    green: '#10b981',
+    orange: '#f59e0b',
+    red: '#f87171',
+    gray: '#6b7280',
+    separator: '#3a3a3a',
+    accent: '#10a37f',
 };
 
 const formatDate = (isoString) => {

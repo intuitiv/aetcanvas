@@ -12,13 +12,13 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const COLORS = {
-  bg: "#0f0f1a",
-  panel: "#1a1a2e",
-  border: "rgba(99, 102, 241, 0.2)",
-  text: "#e2e8f0",
-  textDim: "#9ca3af",
-  accent: "#6366f1",
-  accentBg: "rgba(99, 102, 241, 0.15)",
+  bg: "#212121",
+  panel: "#2f2f2f",
+  border: "rgba(255, 255, 255, 0.1)",
+  text: "#ececf1",
+  textDim: "#8e8ea0",
+  accent: "#10a37f",
+  accentBg: "rgba(16, 163, 127, 0.15)",
   success: "#10b981",
 };
 
@@ -157,8 +157,8 @@ const styles = StyleSheet.create({
   },
 
   safeAreaBottom: {
-    height: Platform.OS === "ios" ? 20 : 0,
-    backgroundColor: COLORS.panel,
+    height: 0,
+    backgroundColor: 'transparent',
   },
 });
 
