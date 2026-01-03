@@ -18,8 +18,9 @@ import {
 
 import { useChatController } from "./src/hooks/useChatController";
 import { ChatInput } from "./src/components/ChatInput";
-import { MessageBubble } from "./src/components/MessageBubble";
+import MessageBubble, { MessageHeader } from "./src/components/MessageBubble";
 import { TraceList } from "./src/components/Sources";
+import Markdown from 'react-native-markdown-display';
 import { LeftSidebar } from "./src/components/LeftSidebar";
 import { Header } from "./src/components/Header";
 import { RightPanel } from "./src/components/RightPanel";
@@ -47,13 +48,96 @@ const useWindowWidth = () => {
     return width;
 };
 
+// Markdown imported at top of file
+
+// ChatGPT-inspired color palette for streaming
+const STREAM_COLORS = {
+    accent: '#10a37f',
+    accentDim: '#0d8a6a',
+    text: '#ececf1',
+    textDim: '#b4b4b4',
+    bg: '#2f2f2f',
+    bgDark: '#212121',
+};
+
+// Progress step data with icons and labels
+const PROGRESS_STEPS = [
+    { key: 'import_matchers', icon: '🧠', label: 'Loading' },
+    { key: 'get_matcher_instance', icon: '🧠', label: 'Initializing' },
+    { key: 'pattern_match', icon: '🎯', label: 'Understanding' },
+    { key: 'cognitive_routing', icon: '🚦', label: 'Routing' },
+    { key: 'file_extraction', icon: '📄', label: 'Reading' },
+    { key: 'graph_execution', icon: '💭', label: 'Thinking' },
+];
+
+// Markdown styles for streaming (matches MessageBubble)
+const streamMarkdownStyles = StyleSheet.create({
+    body: { color: STREAM_COLORS.text, fontSize: 15, lineHeight: 24 },
+    heading1: { color: STREAM_COLORS.text, fontSize: 22, fontWeight: '600', marginTop: 12, marginBottom: 6 },
+    heading2: { color: STREAM_COLORS.text, fontSize: 18, fontWeight: '600', marginTop: 10, marginBottom: 4 },
+    heading3: { color: STREAM_COLORS.text, fontSize: 16, fontWeight: '600', marginTop: 8, marginBottom: 4 },
+    paragraph: { marginTop: 0, marginBottom: 8 },
+    strong: { fontWeight: '600', color: STREAM_COLORS.text },
+    em: { fontStyle: 'italic' },
+    link: { color: STREAM_COLORS.accent, textDecorationLine: 'underline' },
+    code_inline: {
+        backgroundColor: '#1e1e1e',
+        color: '#e5e5e5',
+        fontFamily: 'monospace',
+        fontSize: 13,
+        paddingHorizontal: 4,
+        paddingVertical: 1,
+        borderRadius: 3,
+    },
+    code_block: { backgroundColor: '#1e1e1e', borderRadius: 6, padding: 12, marginVertical: 6 },
+    fence: { backgroundColor: '#1e1e1e', borderRadius: 6, padding: 12, marginVertical: 6, fontFamily: 'monospace', fontSize: 13, color: STREAM_COLORS.text },
+    list_item: { marginVertical: 2 },
+    bullet_list: { marginVertical: 4 },
+    ordered_list: { marginVertical: 4 },
+    bullet_list_icon: { color: STREAM_COLORS.textDim, fontSize: 6, marginRight: 8 },
+    ordered_list_icon: { color: STREAM_COLORS.textDim, fontWeight: '500', marginRight: 8 },
+});
+
+// Minimal thinking indicator
 const ThinkingBubble = () => (
     <View style={styles.thinkingContainer}>
         <View style={styles.thinkingBubble}>
-            <ActivityIndicator size="small" color="#9ca3af" />
+            <ActivityIndicator size="small" color={STREAM_COLORS.accent} />
+            <Text style={styles.thinkingText}>Thinking...</Text>
         </View>
     </View>
 );
+
+// Premium streaming bubble with markdown and progress (Unified Trace)
+const StreamingBubble = ({ content, performanceSteps }) => {
+    return (
+        <View style={styles.streamingContainer}>
+            {/* Unified Trace Header - marginBottom matches MessageBubble.messageHeader */}
+            <View style={{ marginBottom: 8 }}>
+                {performanceSteps.length > 0 ? (
+                    <MessageHeader trace={performanceSteps} />
+                ) : (
+                    // Initial loading pill when no steps yet
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <ActivityIndicator size="small" color={STREAM_COLORS.textDim} style={{ marginRight: 6, transform: [{ scale: 0.6 }] }} />
+                        <Text style={{ fontSize: 12, color: STREAM_COLORS.textDim }}>Starting...</Text>
+                    </View>
+                )}
+            </View>
+            
+            {/* Streaming content with markdown (only when content exists) */}
+            {content ? (
+                <View style={styles.streamingContent}>
+                    <Markdown style={streamMarkdownStyles}>
+                        {content}
+                    </Markdown>
+                    <Text style={styles.streamingCursor}>▊</Text>
+                </View>
+            ) : null}
+        </View>
+    );
+};
+
 
 export default function App() {
     const {
@@ -64,6 +148,10 @@ export default function App() {
         attachment,
         setAttachment,
         traceSteps,
+        performanceSteps,
+        streamingContent,
+        isStreaming,
+        clearStreaming,
         flatListRef,
         inputRef,
         handleNewChat,
@@ -341,11 +429,23 @@ export default function App() {
                                     showsVerticalScrollIndicator={false}
                                     ItemSeparatorComponent={() => <View style={styles.separator} />}
                                     onContentSizeChange={() =>
-                                        flatListRef.current?.scrollToEnd({ animated: true })
+                                        flatListRef.current?.scrollToEnd({ animated: false })
                                     }
                                     ListFooterComponent={
-                                        isLoading && traceSteps.length === 0 ? (
-                                            <ThinkingBubble />
+                                        isLoading ? (
+                                            isStreaming || streamingContent ? (
+                                                <StreamingBubble 
+                                                    content={streamingContent} 
+                                                    performanceSteps={performanceSteps} 
+                                                />
+                                            ) : performanceSteps.length > 0 ? (
+                                                <StreamingBubble 
+                                                    content="" 
+                                                    performanceSteps={performanceSteps} 
+                                                />
+                                            ) : (
+                                                <ThinkingBubble />
+                                            )
                                         ) : null
                                     }
                                 />
@@ -474,11 +574,19 @@ const styles = StyleSheet.create({
     },
 
     thinkingBubble: {
-        maxWidth: "85%",
-        padding: 12,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        padding: 14,
         backgroundColor: "#2f2f2f",
         borderRadius: 16,
         borderBottomLeftRadius: 4,
+    },
+
+    thinkingText: {
+        color: '#10a37f',
+        fontSize: 14,
+        fontWeight: '500',
     },
 
     traceWrapper: {
@@ -487,6 +595,111 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: "#4444",
     },
+
+    // Premium streaming container - MUST match MessageBubble.messageRow style exactly
+    streamingContainer: {
+        width: '100%',
+        alignItems: 'flex-start',
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+    },
+
+    // Progress timeline (horizontal steps)
+    progressTimeline: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        paddingVertical: 16,
+        paddingHorizontal: 8,
+        backgroundColor: '#2a2a2a',
+        borderRadius: 12,
+        marginBottom: 8,
+    },
+
+    progressStep: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    progressDot: {
+        width: 20,
+        height: 20,
+        borderRadius: 10,
+        backgroundColor: '#444',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    progressDotCompleted: {
+        backgroundColor: '#10a37f',
+    },
+
+    progressDotActive: {
+        backgroundColor: '#10a37f',
+        shadowColor: '#10a37f',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.6,
+        shadowRadius: 6,
+        elevation: 4,
+    },
+
+    progressCheck: {
+        color: '#fff',
+        fontSize: 10,
+        fontWeight: '700',
+    },
+
+    progressLabel: {
+        marginLeft: 6,
+        marginRight: 4,
+        fontSize: 11,
+        color: '#666',
+        fontWeight: '500',
+    },
+
+    progressLabelActive: {
+        color: '#10a37f',
+    },
+
+    progressLine: {
+        width: 20,
+        height: 2,
+        backgroundColor: '#444',
+        marginHorizontal: 4,
+    },
+
+    progressLineCompleted: {
+        backgroundColor: '#10a37f',
+    },
+
+    // Streaming content (markdown rendered)
+    streamingContent: {
+        maxWidth: '100%',
+    },
+
+    streamingCursor: {
+        color: '#10a37f',
+        fontSize: 16,
+        fontWeight: '300',
+        opacity: 0.9,
+    },
+
+    // Fallback thinking row
+    thinkingRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        padding: 14,
+        backgroundColor: '#2f2f2f',
+        borderRadius: 12,
+    },
+
+    thinkingLabel: {
+        color: '#10a37f',
+        fontSize: 14,
+        fontWeight: '500',
+    },
+
 
     // Mobile overlay styles
     mobileOverlay: {

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Platform, TextInput, FlatList } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
-import { useCognitiveTraceSocket, TraceStep } from './useCognitiveTraceSocket';
+import { useCognitiveTraceSocket, TraceStep, PerformanceStep } from './useCognitiveTraceSocket';
 import { apiClient, DEFAULT_USER_ID } from '../services/api';
 import { Message } from '../types';
 
@@ -20,7 +20,17 @@ export const useChatController = () => {
     const [historyIndex, setHistoryIndex] = useState<number>(-1);
     const isSubmitting = useRef(false);
 
-    const { traceSteps, connect, disconnect } = useCognitiveTraceSocket();
+    const { 
+        traceSteps, 
+        performanceSteps,
+        performanceStepsRef,
+        streamingContent, 
+        isStreaming,
+        connect, 
+        disconnect,
+        clearStreaming,
+        getTokenQueueLength,
+    } = useCognitiveTraceSocket();
 
     useEffect(() => {
         const handleGlobalKeyDown = (event: KeyboardEvent) => {
@@ -45,9 +55,6 @@ export const useChatController = () => {
 
     /**
      * Add a system message to the chat (e.g., notification content)
-     * @param title - Message title
-     * @param content - Message content
-     * @param sources - Optional array of sources for pill display
      */
     const addSystemMessage = (title: string, content: string, sources?: any[]) => {
         const systemMessage: Message = {
@@ -113,7 +120,7 @@ export const useChatController = () => {
 
         setIsLoading(true);
         isSubmitting.current = true;
-        let finalTrace: TraceStep[] = [];
+        let finalTrace: TraceStep[] | PerformanceStep[] = [];
 
         try {
             let chaetraResponse;
@@ -143,15 +150,23 @@ export const useChatController = () => {
                 chaetraResponse = response.data;
             }
 
-            finalTrace = traceSteps;
+            // Use the ref to get the latest performance steps, fallback to traceSteps or empty
+            finalTrace = performanceStepsRef?.current?.length 
+                ? performanceStepsRef.current 
+                : (performanceSteps.length ? performanceSteps : traceSteps);
 
             const finalChaetraMessage: Message = {
                 id: chaetraResponse.chaetra_message_id || `chaetra-${Date.now()}`,
                 text: chaetraResponse.reply_text,
                 sender: 'chaetra',
                 sources: chaetraResponse.sources,
-                trace: finalTrace
+                trace: finalTrace as any
             };
+            
+            // Clear streaming state BEFORE adding final message to prevent duplicate rendering
+            clearStreaming();
+            setIsLoading(false);
+            
             setMessages((prev) => [...prev, finalChaetraMessage]);
 
             if (chaetraResponse.conversation_id && !conversationId) {
@@ -160,11 +175,19 @@ export const useChatController = () => {
 
         } catch (error) {
             console.error('Error sending message:', error);
-            finalTrace = traceSteps;
-            const errorMessage: Message = { id: `error-${Date.now()}`, text: 'Sorry, an error occurred. Please check the connection and API payload.', sender: 'chaetra', trace: finalTrace };
+            // Also grab latest trace on error
+            finalTrace = performanceStepsRef?.current?.length 
+                ? performanceStepsRef.current 
+                : traceSteps;
+            
+            // Clear streaming state before adding error message
+            clearStreaming();
+            setIsLoading(false);
+                
+            const errorMessage: Message = { id: `error-${Date.now()}`, text: 'Sorry, an error occurred. Please check the connection and API payload.', sender: 'chaetra', trace: finalTrace as any };
             setMessages((prev) => [...prev, errorMessage]);
         } finally {
-            setIsLoading(false);
+            // Cleanup submitting flag and disconnect
             isSubmitting.current = false;
             disconnect();
         }
@@ -172,7 +195,8 @@ export const useChatController = () => {
 
     return {
         messages, isLoading, inputText, setInputText, attachment, setAttachment,
-        traceSteps, flatListRef, inputRef, handleNewChat, addSystemMessage,
+        traceSteps, performanceSteps, streamingContent, isStreaming, clearStreaming,
+        flatListRef, inputRef, handleNewChat, addSystemMessage,
         handleInputKeyDown, handlePickAttachment, handleSendMessage,
     };
 };

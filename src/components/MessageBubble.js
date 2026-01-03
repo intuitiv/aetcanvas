@@ -2,11 +2,11 @@
 // ChatGPT-style compact message bubbles
 
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Image, StyleSheet, useWindowDimensions, Platform } from 'react-native';
+import { View, Text, Image, StyleSheet, useWindowDimensions, Platform, TouchableOpacity, ActivityIndicator } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 import Markdown from 'react-native-markdown-display';
 import Icon from 'react-native-vector-icons/Feather';
-import { SourcesAndTraceFooter } from './Sources';
+import { SourcesAndTraceFooter, TraceList } from './Sources';
 
 // ChatGPT-inspired color palette
 const COLORS = {
@@ -145,38 +145,113 @@ const RenderTextContent = ({ text, isUser, width }) => {
 };
 
 // Source activity header
-const MessageHeader = ({ sources }) => {
-    if (!sources || sources.length === 0) return null;
+export const MessageHeader = ({ sources, trace }) => {
+    const hasSources = sources && sources.length > 0;
+    const hasTrace = trace && trace.length > 0;
+    
+    if (!hasSources && !hasTrace) return null;
 
-    const activities = [];
-    const seenTypes = new Set();
-
-    sources.forEach(source => {
-        if (source.source_type === 'memory_item') {
-            const snippet = (source.snippet || '').toLowerCase();
-            if ((snippet.includes('gmail') || snippet.includes('email')) && !seenTypes.has('gmail')) {
-                activities.push({ icon: '📧', text: 'Gmail', color: COLORS.gmail });
-                seenTypes.add('gmail');
-            } else if (!seenTypes.has('memory')) {
-                activities.push({ icon: '🧠', text: 'Memory', color: COLORS.memory });
-                seenTypes.add('memory');
+    // 1. Build Breadcrumbs from Trace (Filtered)
+    const breadcrumbs = [];
+    if (hasTrace) {
+        trace.forEach(step => {
+            const isComplete = step.status !== 'start';
+            const duration = step.duration_ms || 0;
+            // Heuristic: If has explicit metadata label, it is a specific User/Query event.
+            // If not, it is a generic System event.
+            const isSystem = !step.metadata?.label; 
+            
+            // Filter Logic:
+            // - If Active: ALWAYS SHOW (Current thought)
+            // - If Complete:
+            //   - If System Event AND < 500ms: HIDE (Too trivial)
+            //   - Else: SHOW
+            
+            let shouldShow = true;
+            if (isComplete && isSystem && duration < 500) {
+                 shouldShow = false;
             }
-        } else if (source.source_type === 'url_content' && !seenTypes.has('url')) {
-            activities.push({ icon: '🔗', text: 'Web', color: COLORS.url });
-            seenTypes.add('url');
-        } else if (source.source_type === 'document_chunk' && !seenTypes.has('doc')) {
-            activities.push({ icon: '📄', text: 'Docs', color: COLORS.document });
-            seenTypes.add('doc');
-        }
-    });
+            
+            if (shouldShow) {
+                // Determine Label & Icon
+                let label = step.metadata?.label;
+                let icon = step.metadata?.icon;
+                
+                // Fallback for system events that are shown
+                if (!label) {
+                     const STEP_LABELS = {
+                        'import_matchers': 'Loading Models',
+                        'get_matcher_instance': 'Initializing',
+                        'pattern_match': 'Understanding Intent',
+                        'cognitive_routing': 'Routing Request',
+                        'graph_execution': 'Thinking',
+                        'file_extraction': 'Reading Files', // Fallback if metadata missing
+                     };
+                     label = STEP_LABELS[step.step] || step.step;
+                     icon = ''; 
+                }
 
-    if (activities.length === 0) return null;
+                breadcrumbs.push({
+                    text: label,
+                    icon: icon,
+                    duration: step.duration_ms,
+                    isActive: !isComplete,
+                    type: 'trace'
+                });
+            }
+        });
+    }
+
+    // 2. Fallback: If Filtered Trace is empty (or legacy message), try Sources
+    // Note: If trace existed but everything was filtered out (<500ms), we might show nothing.
+    // That acts as "seamless". But if we have sources, maybe show them?
+    // Let's fallback to sources only if original trace was empty (legacy).
+    if (!hasTrace && hasSources) {
+        const seenTypes = new Set();
+        sources.forEach(source => {
+            if (source.source_type === 'memory_item') {
+                const snippet = (source.snippet || '').toLowerCase();
+                if ((snippet.includes('gmail') || snippet.includes('email')) && !seenTypes.has('gmail')) {
+                    breadcrumbs.push({ icon: '📧', text: 'Searched Gmail', type: 'source' });
+                    seenTypes.add('gmail');
+                } else if (!seenTypes.has('memory')) {
+                    breadcrumbs.push({ icon: '🧠', text: 'Queried Memory', type: 'source' });
+                    seenTypes.add('memory');
+                }
+            } else if (source.source_type === 'url_content' && !seenTypes.has('url')) {
+                breadcrumbs.push({ icon: '🔗', text: 'Read Web', type: 'source' });
+                seenTypes.add('url');
+            } else if (source.source_type === 'document_chunk' && !seenTypes.has('doc')) {
+                breadcrumbs.push({ icon: '📄', text: 'Read Docs', type: 'source' });
+                seenTypes.add('doc');
+            }
+        });
+    }
+
+    if (breadcrumbs.length === 0) return null;
 
     return (
         <View style={styles.messageHeader}>
-            {activities.map((activity, i) => (
-                <View key={i} style={[styles.sourcePill, { backgroundColor: activity.color + '20' }]}>
-                    <Text style={styles.sourcePillText}>{activity.icon} {activity.text}</Text>
+            {breadcrumbs.map((crumb, i) => (
+                <View key={i} style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    {crumb.isActive ? (
+                        <ActivityIndicator 
+                            size="small" 
+                            color={COLORS.textDim} 
+                            style={{ marginRight: 6, transform: [{ scale: 0.6 }] }} 
+                        />
+                    ) : (
+                        !!crumb.icon && <Text style={{ fontSize: 12, marginRight: 4 }}>{crumb.icon}</Text>
+                    )}
+                    
+                    <Text style={styles.breadcrumbText}>
+                        {crumb.text}
+                        {crumb.duration ? ` (${(crumb.duration/1000).toFixed(1)}s)` : ''}
+                    </Text>
+                    
+                    {i < breadcrumbs.length - 1 && (
+                        <Text style={styles.breadcrumbSeparator}>•</Text>
+                    )}
                 </View>
             ))}
         </View>
@@ -202,7 +277,7 @@ export const MessageBubble = ({ item }) => {
                 // Bot message - full width, no bubble
                 <View style={[styles.botContainer, { maxWidth: Math.min(768, width - 32) }]}>
                     {/* Source header */}
-                    {allSources.length > 0 && <MessageHeader sources={allSources} />}
+                    <MessageHeader sources={allSources} trace={item.trace} />
 
                     {/* Image */}
                     {primaryImageSource && (
@@ -226,10 +301,10 @@ export const MessageBubble = ({ item }) => {
                         </View>
                     )}
 
-                    {/* Footer with sources */}
-                    {hasFooterContent && (
+                    {/* Footer with sources (Trace now in header) */}
+                    {allSources.length > 0 && (
                         <View style={styles.footer}>
-                            <SourcesAndTraceFooter sources={allSources} trace={item.trace || []} />
+                            <SourcesAndTraceFooter sources={allSources} trace={[]} />
                         </View>
                     )}
                 </View>
@@ -324,6 +399,16 @@ const styles = StyleSheet.create({
         paddingTop: 8,
         borderTopWidth: 1,
         borderTopColor: 'rgba(255,255,255,0.08)',
+    },
+
+    breadcrumbText: {
+        fontSize: 12,
+        color: COLORS.textDim,
+    },
+    breadcrumbSeparator: {
+        fontSize: 12,
+        color: COLORS.textDim,
+        marginHorizontal: 8,
     },
 });
 

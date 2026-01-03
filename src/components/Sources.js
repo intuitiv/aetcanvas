@@ -158,6 +158,45 @@ const SourceCard = ({ source }) => {
     );
 };
 
+// Progress steps mapping (matching App.js)
+const STEP_LABELS = {
+    'import_matchers': 'Loading Models',
+    'get_matcher_instance': 'Initializing',
+    'pattern_match': 'Understanding Intent',
+    'cognitive_routing': 'Routing Request',
+    'file_extraction': 'Reading Documents',
+    'graph_execution': 'Thinking & Generating',
+};
+
+// --- Trace List (thinking steps) ---
+export const TraceList = ({ steps }) => {
+    if (!steps || steps.length === 0) return null;
+
+    return (
+        <View style={styles.traceList}>
+            {steps.map((step, index) => {
+                // Handle both old TraceStep (trace-id) and new PerformanceStep (step key)
+                const key = step.id || step.step || index;
+                const message = (step.metadata && step.metadata.label) || step.message || STEP_LABELS[step.step] || step.step || 'Unknown Step';
+                // Only show duration if complete (or if just trace step)
+                const duration = step.duration_ms || step.elapsed_ms;
+
+                return (
+                    <View key={key} style={styles.traceRow}>
+                        <View style={styles.traceDot} />
+                        <Text style={styles.traceText} numberOfLines={2}>
+                            {message}
+                        </Text>
+                        {duration != null && (
+                            <Text style={styles.traceDuration}>{(duration / 1000).toFixed(2)}s</Text>
+                        )}
+                    </View>
+                );
+            })}
+        </View>
+    );
+};
+
 // --- Source Pills Row with grouping, counts, and expandable links ---
 export const SourcePillsRow = ({ sources }) => {
     const [expandedGroup, setExpandedGroup] = useState(null);
@@ -171,7 +210,12 @@ export const SourcePillsRow = ({ sources }) => {
         let color = COLORS.accent;
         let iconType = 'file';
 
-        if (source.source_type === 'url_content') {
+        if (source.source_type === 'trace') {
+             type = 'trace';
+             iconType = 'memory'; 
+             color = COLORS.textDim;
+             label = 'Thinking';
+        } else if (source.source_type === 'url_content') {
             type = 'url';
             iconType = 'url';
             color = COLORS.url;
@@ -240,12 +284,18 @@ export const SourcePillsRow = ({ sources }) => {
         if (!acc[type]) {
             acc[type] = { type, iconType, color, label, count: 0, emailCount: 0, items: [] };
         }
-        acc[type].count += 1;
-        // Use email_count from source if available (for Gmail)
-        if (source.email_count) {
-            acc[type].emailCount = source.email_count;
+        
+        if (source.source_type === 'trace') {
+            acc[type].count = source.count || 0;
+            acc[type].duration = source.duration || 0;
+            acc[type].items = source.items || [];
+        } else {
+            acc[type].count += 1;
+            if (source.email_count) {
+                acc[type].emailCount = source.email_count;
+            }
+            acc[type].items.push(source);
         }
-        acc[type].items.push(source);
         return acc;
     }, {});
 
@@ -266,7 +316,10 @@ export const SourcePillsRow = ({ sources }) => {
             <View style={styles.pillsRow}>
                 {groups.map((group, i) => {
                     let countText = '';
-                    if (group.type === 'gmail') {
+                    if (group.type === 'trace') {
+                         const durationSec = (group.duration / 1000).toFixed(1);
+                         countText = `${durationSec}s`;
+                    } else if (group.type === 'gmail') {
                         const emailNum = group.emailCount || group.count;
                         countText = `${emailNum} ${emailNum === 1 ? 'email' : 'emails'}`;
                     } else if (group.type === 'document') {
@@ -285,7 +338,7 @@ export const SourcePillsRow = ({ sources }) => {
                         >
                             <View style={styles.pillIconContainer}>
                                 <Ionicons
-                                    name={IOS_ICONS[group.iconType] || 'document'}
+                                    name={group.type === 'trace' ? 'hardware-chip-outline' : (IOS_ICONS[group.iconType] || 'document')}
                                     size={14}
                                     color={group.color}
                                 />
@@ -305,10 +358,13 @@ export const SourcePillsRow = ({ sources }) => {
                 })}
             </View>
             
-            {/* Expanded links list */}
+            {/* Expanded links list or trace details */}
             {expandedGroup && groups.find(g => g.type === expandedGroup) && (
-                <View style={styles.expandedLinks}>
-                    {groups.find(g => g.type === expandedGroup).items.slice(0, 10).map((item, idx) => (
+                <View style={[styles.expandedLinks, expandedGroup === 'trace' && { backgroundColor: 'transparent', padding: 0 }]}>
+                    {expandedGroup === 'trace' ? (
+                         <TraceList steps={groups.find(g => g.type === 'trace').items} />
+                    ) : (
+                        groups.find(g => g.type === expandedGroup).items.slice(0, 10).map((item, idx) => (
                         <TouchableOpacity 
                             key={idx} 
                             style={styles.linkItem}
@@ -324,7 +380,7 @@ export const SourcePillsRow = ({ sources }) => {
                                 </Text>
                             )}
                         </TouchableOpacity>
-                    ))}
+                    )))}
                 </View>
             )}
         </View>
@@ -356,43 +412,29 @@ const CollapsibleSection = ({ title, count, emoji, children }) => {
     );
 };
 
-// --- Trace List (thinking steps) ---
-export const TraceList = ({ steps }) => {
-    if (!steps || steps.length === 0) return null;
 
-    return (
-        <View style={styles.traceList}>
-            {steps.map((step) => (
-                <View key={step.id} style={styles.traceRow}>
-                    <View style={styles.traceDot} />
-                    <Text style={styles.traceText} numberOfLines={2}>
-                        {step.message}
-                    </Text>
-                    {step.duration_ms != null && (
-                        <Text style={styles.traceDuration}>{step.duration_ms}ms</Text>
-                    )}
-                </View>
-            ))}
-        </View>
-    );
-};
 
 // --- Main Footer with Sources and Trace ---
 export const SourcesAndTraceFooter = ({ sources = [], trace = [] }) => {
-    const hasContent = (sources && sources.length > 0) || (trace && trace.length > 0);
+    // Merge trace into sources list as a pseudo-source
+    const combinedSources = [...sources];
+    
+    if (trace && trace.length > 0) {
+        const totalDurationMs = trace.reduce((acc, step) => acc + (step.duration_ms || step.elapsed_ms || 0), 0);
+        combinedSources.push({
+            source_type: 'trace',
+            count: trace.length,
+            duration: totalDurationMs,
+            items: trace
+        });
+    }
+
+    const hasContent = combinedSources.length > 0;
     if (!hasContent) return null;
 
     return (
         <View style={styles.footer}>
-            {/* Show source pills inline - no collapsible, clean display */}
-            {sources.length > 0 && (
-                <SourcePillsRow sources={sources} />
-            )}
-
-            {/* Thinking trace is still collapsible */}
-            <CollapsibleSection title="Thinking" count={trace.length} emoji="💭">
-                <TraceList steps={trace} />
-            </CollapsibleSection>
+             <SourcePillsRow sources={combinedSources} />
         </View>
     );
 };
