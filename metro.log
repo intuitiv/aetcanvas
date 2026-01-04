@@ -1,9 +1,11 @@
-Starting project at /Users/sainath/WebstormProjects/aetcanvas
+
+Development build: Unable to get the default URI scheme for the project. Please make sure the expo-dev-client package is installed.
+Starting project at /Users/sainath/PycharmProjects/temp/aetcanvas
 env: load .env
 env: export EXPO_PUBLIC_DEFAULT_WORKSPACE_URL
-› Port 8081 is running this app in another window
-  /Users/sainath/WebstormProjects/aetcanvas (pid 57625)
+› Port 8081 is running simpleproject in another window
+  /Users/sainath/WebstormProjects/aetcanvas (pid 36711)
 Input is required, but 'npx expo' is in non-interactive mode.
 Required input:
-> Use port 8083 instead?
+> Use port 8082 instead?
 › Skipping dev server

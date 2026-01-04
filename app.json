@@ -25,7 +25,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.aet.aetcanvas",
       "entitlements": {},
-      "developmentTeam": "C737B74TPA"
+      "developmentTeam": "465RPYFR4F"
     },
     "android": {
       "adaptiveIcon": {
@@ -40,7 +40,8 @@
     },
     "plugins": [
       "expo-font",
-      "./plugins/disablePushNotifications"
+      "./plugins/disablePushNotifications",
+      "./plugins/withDevelopmentTeam"
     ],
     "extra": {
       "eas": {
