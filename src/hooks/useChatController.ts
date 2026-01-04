@@ -24,8 +24,14 @@ export const useChatController = () => {
         traceSteps, 
         performanceSteps,
         performanceStepsRef,
+        toolSteps,
+        thinkingContent,
+        thinkingDuration,
+        isThinking,
         streamingContent, 
         isStreaming,
+        requestStartTime,
+        firstResponseTime,
         connect, 
         disconnect,
         clearStreaming,
@@ -195,7 +201,10 @@ export const useChatController = () => {
 
     return {
         messages, isLoading, inputText, setInputText, attachment, setAttachment,
-        traceSteps, performanceSteps, streamingContent, isStreaming, clearStreaming,
+        traceSteps, performanceSteps, toolSteps,
+        thinkingContent, thinkingDuration, isThinking,
+        streamingContent, isStreaming, clearStreaming,
+        requestStartTime, firstResponseTime,
         flatListRef, inputRef, handleNewChat, addSystemMessage,
         handleInputKeyDown, handlePickAttachment, handleSendMessage,
     };

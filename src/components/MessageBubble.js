@@ -258,6 +258,53 @@ export const MessageHeader = ({ sources, trace }) => {
     );
 };
 
+// Expandable thinking summary component
+const ExpandableThinking = ({ trace }) => {
+    const [expanded, setExpanded] = useState(false);
+    
+    if (!trace || trace.length === 0) return null;
+    
+    // Filter out fast steps (< 100ms) - they're too quick to be meaningful
+    const visibleSteps = trace.filter(step => !step.duration_ms || step.duration_ms >= 100);
+    if (visibleSteps.length === 0) return null;
+    
+    // Calculate total duration from visible trace steps
+    const totalMs = visibleSteps.reduce((sum, step) => sum + (step.duration_ms || 0), 0);
+    const durationSec = (totalMs / 1000).toFixed(1);
+    
+    // Don't show if duration is too short (< 0.5s)
+    if (totalMs < 500) return null;
+    
+    return (
+        <View style={styles.collapsedThinking}>
+            <TouchableOpacity 
+                onPress={() => setExpanded(!expanded)}
+                style={styles.thinkingToggle}
+                activeOpacity={0.7}
+            >
+                <Text style={styles.collapsedThinkingText}>
+                    <Text style={{fontSize: 16}}>{expanded ? '⌵' : '›'}</Text> 💭 Thought for {durationSec}s
+                </Text>
+            </TouchableOpacity>
+            
+            {expanded && (
+                <View style={styles.expandedThinking}>
+                    {visibleSteps.map((step, i) => {
+                        const stepLabel = step.metadata?.label || step.step || 'Processing';
+                        const stepDuration = step.duration_ms ? `(${(step.duration_ms / 1000).toFixed(1)}s)` : '';
+                        // All completed steps should show checkmark in final view
+                        return (
+                            <Text key={i} style={styles.thinkingStep}>
+                                ✓ {stepLabel} {stepDuration}
+                            </Text>
+                        );
+                    })}
+                </View>
+            )}
+        </View>
+    );
+};
+
 export const MessageBubble = ({ item }) => {
     const { width } = useWindowDimensions();
     const primaryImageSource = item.sources?.find((s) => s.mime_type?.startsWith('image/'));
@@ -276,8 +323,8 @@ export const MessageBubble = ({ item }) => {
             ) : (
                 // Bot message - full width, no bubble
                 <View style={[styles.botContainer, { maxWidth: Math.min(768, width - 32) }]}>
-                    {/* Source header */}
-                    <MessageHeader sources={allSources} trace={item.trace} />
+                    {/* Expandable thinking summary */}
+                    <ExpandableThinking trace={item.trace} />
 
                     {/* Image */}
                     {primaryImageSource && (
@@ -342,6 +389,33 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         gap: 6,
         marginBottom: 8,
+    },
+
+    collapsedThinking: {
+        marginBottom: 8,
+    },
+
+    collapsedThinkingText: {
+        fontSize: 12,
+        color: '#b4b4b4',
+    },
+
+    thinkingToggle: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    expandedThinking: {
+        marginTop: 8,
+        paddingLeft: 8,
+        borderLeftWidth: 2,
+        borderLeftColor: '#444',
+    },
+
+    thinkingStep: {
+        fontSize: 12,
+        color: '#888',
+        lineHeight: 20,
     },
 
     sourcePill: {
