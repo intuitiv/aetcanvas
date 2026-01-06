@@ -49,6 +49,7 @@ const NAV_ITEMS = [
     { id: 'reminders', icon: '◎', label: 'Reminders', gradient: ['#f59e0b', '#ef4444'] },
     { id: 'routines', icon: '↻', label: 'Routines', gradient: ['#10b981', '#14b8a6'] },
     { id: 'contacts', icon: '⊕', label: 'Contacts', gradient: ['#60a5fa', '#3b82f6'] },
+    { id: 'gym', icon: '▣', label: 'Gym', gradient: ['#a855f7', '#7c3aed'] },
 ];
 
 // Premium Nav Item Component

@@ -32,6 +32,7 @@ import { MobileRightPanelSheet } from "./src/components/MobileRightPanelSheet";
 import { RoutinesPanel } from "./src/components/RoutinesPanel";
 import { RemindersPanel } from "./src/components/RemindersPanel";
 import { ApiDocsPanel } from "./src/components/ApiDocsPanel";
+import { GymPanel } from "./src/components/GymPanel";
 import { API_BASE_URL } from "./src/services/api";
 
 // Hook to detect screen width
@@ -510,7 +511,8 @@ export default function App() {
                         <RoutinesPanel />
                     ) : activeView === 'reminders' ? (
                         <RemindersPanel />
-
+                    ) : activeView === 'gym' ? (
+                        <GymPanel />
                     ) : activeView === 'api_map' ? (
                         <ApiDocsPanel docType="map" />
                     ) : activeView === 'api_arch' ? (
