@@ -264,16 +264,16 @@ const ExpandableThinking = ({ trace }) => {
     
     if (!trace || trace.length === 0) return null;
     
-    // Filter out fast steps (< 100ms) - they're too quick to be meaningful
-    const visibleSteps = trace.filter(step => !step.duration_ms || step.duration_ms >= 100);
+    // Filter out fast steps (<500ms) - per user request
+    const visibleSteps = trace.filter(step => !step.duration_ms || step.duration_ms >= 500);
     if (visibleSteps.length === 0) return null;
     
     // Calculate total duration from visible trace steps
     const totalMs = visibleSteps.reduce((sum, step) => sum + (step.duration_ms || 0), 0);
     const durationSec = (totalMs / 1000).toFixed(1);
     
-    // Don't show if duration is too short (< 0.5s)
-    if (totalMs < 500) return null;
+    // Don't show if total duration is too short (<1s) - per user request
+    if (totalMs < 1000) return null;
     
     return (
         <View style={styles.collapsedThinking}>
