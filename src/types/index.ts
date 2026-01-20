@@ -21,4 +21,6 @@ export interface Message {
     sources?: Source[];
     attachmentName?: string;
     trace?: TraceStep[];
+    thinkingContent?: string;  // LLM reasoning tokens before tool calls
+    thinkingDuration?: number;  // Duration in ms of thinking phase
 }

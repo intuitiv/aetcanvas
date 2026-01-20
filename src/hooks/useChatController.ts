@@ -26,13 +26,17 @@ export const useChatController = () => {
         performanceStepsRef,
         toolSteps,
         thinkingContent,
+        thinkingContentRef,
         thinkingDuration,
         isThinking,
         streamingContent, 
         isStreaming,
         requestStartTime,
         firstResponseTime,
+        currentSessionId,
+        missedEvents,
         connect, 
+        connectThinkingSocket,
         disconnect,
         clearStreaming,
         getTokenQueueLength,
@@ -112,7 +116,12 @@ export const useChatController = () => {
         const attachmentToSend = attachment;
         if (!messageText && !attachmentToSend) return;
 
-        connect();
+        // DD-013: Generate or use existing conversation_id for thinking socket
+        // This allows us to connect before the API call and receive streaming events
+        const sessionId = conversationId || `pending-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        
+        // Connect to both legacy and thinking sockets with session ID
+        connect(sessionId);
 
         const userMessage: Message = { id: `user-${Date.now()}`, text: messageText, sender: 'user', attachmentName: attachmentToSend?.name };
         setMessages((prev) => [...prev, userMessage]);
@@ -145,8 +154,12 @@ export const useChatController = () => {
                 const payload: any = {
                     user_id: DEFAULT_USER_ID,
                     message_text: messageText,
-                    conversation_id: conversationId,
-                    metadata: {}
+                    // DD-013: Use sessionId to match WebSocket connection for streaming events
+                    conversation_id: sessionId.startsWith('pending-') ? null : sessionId,
+                    metadata: {
+                        // DD-013: Pass session_id for thinking socket events
+                        streaming_session_id: sessionId
+                    }
                 };
                 if (lastUploadId) {
                     payload.metadata.linked_document_id = lastUploadId;
@@ -154,6 +167,15 @@ export const useChatController = () => {
                 }
                 const response = await apiClient.post('/conversation', payload);
                 chaetraResponse = response.data;
+                
+                // DD-013: If backend assigned a real conversation_id, update state and reconnect
+                if (chaetraResponse.conversation_id && chaetraResponse.conversation_id !== sessionId) {
+                    setConversationId(chaetraResponse.conversation_id);
+                    // Reconnect thinking socket if backend uses different ID
+                    if (!sessionId.startsWith('pending-')) {
+                        connectThinkingSocket(chaetraResponse.conversation_id);
+                    }
+                }
             }
 
             // Use the ref to get the latest performance steps, fallback to traceSteps or empty
@@ -166,11 +188,14 @@ export const useChatController = () => {
                 text: chaetraResponse.reply_text,
                 sender: 'chaetra',
                 sources: chaetraResponse.sources,
-                trace: finalTrace as any
+                trace: finalTrace as any,
+                thinkingContent: thinkingContentRef?.current || thinkingContent,  // Use ref to preserve content after clear
+                thinkingDuration: thinkingDuration,
             };
             
-            // Clear streaming state BEFORE adding final message to prevent duplicate rendering
-            clearStreaming();
+            
+            // Don't clear streaming data - keep performance steps visible after response
+            // Clearing happens at start of NEXT request in connect()
             setIsLoading(false);
             
             setMessages((prev) => [...prev, finalChaetraMessage]);
@@ -186,8 +211,8 @@ export const useChatController = () => {
                 ? performanceStepsRef.current 
                 : traceSteps;
             
-            // Clear streaming state before adding error message
-            clearStreaming();
+            
+            // Don't clear streaming - keep steps visible even on error
             setIsLoading(false);
                 
             const errorMessage: Message = { id: `error-${Date.now()}`, text: 'Sorry, an error occurred. Please check the connection and API payload.', sender: 'chaetra', trace: finalTrace as any };

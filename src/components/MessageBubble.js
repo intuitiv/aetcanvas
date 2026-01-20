@@ -132,9 +132,19 @@ const HtmlContent = ({ text, width }) => (
     />
 );
 
-const MarkdownContent = ({ text }) => (
-    <Markdown style={markdownStyles}>{text}</Markdown>
-);
+// Escape angle brackets that aren't part of actual HTML tags for markdown rendering
+const escapeHtmlForMarkdown = (text) => {
+    if (!text) return '';
+    // Replace < that aren't part of HTML tags with &lt;
+    // Pattern: < not followed by a valid tag name or slash
+    return text.replace(/<(?![a-zA-Z\/!])/g, '&lt;');
+};
+
+const MarkdownContent = ({ text }) => {
+    // Escape stray angle brackets to prevent rendering issues
+    const safeText = escapeHtmlForMarkdown(text);
+    return <Markdown style={markdownStyles}>{safeText}</Markdown>;
+};
 
 const RenderTextContent = ({ text, isUser, width }) => {
     if (isUser) {
@@ -258,52 +268,122 @@ export const MessageHeader = ({ sources, trace }) => {
     );
 };
 
-// Expandable thinking summary component
-const ExpandableThinking = ({ trace }) => {
-    const [expanded, setExpanded] = useState(false);
+// Unified Thinking Trace Component
+// Used for both streaming (live) and final (static) states
+// Renders thinking steps with support for running/completed states
+const ThinkingTrace = ({ trace, thinkingContent }) => {
+    const [expandedSteps, setExpandedSteps] = useState({});
     
     if (!trace || trace.length === 0) return null;
     
-    // Filter out fast steps (<500ms) - per user request
-    const visibleSteps = trace.filter(step => !step.duration_ms || step.duration_ms >= 500);
-    if (visibleSteps.length === 0) return null;
+    // Clean thinking content
+    const cleanContent = (content) => {
+        if (!content) return '';
+        return content
+            .replace(/TOOL:\s*\w+:\{[^}]*\}/g, '')
+            .replace(/TOOL:\s*\w+/g, '')
+            .replace(/```json[\s\S]*?```/g, '')
+            .replace(/\n{3,}/g, '\n\n')
+            .replace(/ANSWER\s*$/i, '')
+            .trim();
+    };
     
-    // Calculate total duration from visible trace steps
-    const totalMs = visibleSteps.reduce((sum, step) => sum + (step.duration_ms || 0), 0);
-    const durationSec = (totalMs / 1000).toFixed(1);
+    // Filter out internal steps
+    const visibleSteps = trace.filter(s => 
+        s.step !== 'graph_execution' &&
+        s.step !== 'pattern_match' &&
+        s.step !== 'import_matchers' &&
+        s.step !== 'get_matcher_instance'
+    );
     
-    // Don't show if total duration is too short (<1s) - per user request
-    if (totalMs < 1000) return null;
+    // Toggle expansion using unique key (step + index) to handle duplicates
+    const toggleExpand = (uniqueKey) => {
+        setExpandedSteps(prev => ({ ...prev, [uniqueKey]: !prev[uniqueKey] }));
+    };
+    
+    // Simple dot animation for running steps
+    const AnimatedDots = () => {
+        const [dots, setDots] = useState('');
+        useEffect(() => {
+            const interval = setInterval(() => {
+                setDots(prev => prev.length >= 3 ? '' : prev + '.');
+            }, 500);
+            return () => clearInterval(interval);
+        }, []);
+        return <Text style={{ color: '#666' }}> {dots}</Text>;
+    };
     
     return (
-        <View style={styles.collapsedThinking}>
-            <TouchableOpacity 
-                onPress={() => setExpanded(!expanded)}
-                style={styles.thinkingToggle}
-                activeOpacity={0.7}
-            >
-                <Text style={styles.collapsedThinkingText}>
-                    <Text style={{fontSize: 16}}>{expanded ? '⌵' : '›'}</Text> 💭 Thought for {durationSec}s
-                </Text>
-            </TouchableOpacity>
-            
-            {expanded && (
-                <View style={styles.expandedThinking}>
-                    {visibleSteps.map((step, i) => {
-                        const stepLabel = step.metadata?.label || step.step || 'Processing';
-                        const stepDuration = step.duration_ms ? `(${(step.duration_ms / 1000).toFixed(1)}s)` : '';
-                        // All completed steps should show checkmark in final view
-                        return (
-                            <Text key={i} style={styles.thinkingStep}>
-                                ✓ {stepLabel} {stepDuration}
+        <View style={styles.thinkingAndActionsContainer}>
+            {visibleSteps.map((step, i) => {
+                // Determine step state
+                const isRunning = step.status === 'start';
+                const result = step.result || step.metadata?.result;
+                const label = step.metadata?.label || step.step;
+                const uniqueKey = `${step.step}-${i}`;
+                
+                // Content Prioritization:
+                // 1. Step-specific content (new logic)
+                // 2. Fallback to global content ONLY if this is the active running step (for streaming continuity)
+                //    or if it's the ONLY cognitive step.
+                let stepContent = step.thinking_content 
+                    ? cleanContent(step.thinking_content) 
+                    : '';
+                
+                // Fallback for legacy or if per-step failed (e.g. very first token)
+                // If this is the RUNNING step, show the global thinkingContent as it streams in
+                // (Global thinkingContent is accumulated, so it might have previous steps too, 
+                // but usually we rely on step.thinking_content now. 
+                // However, for immediate feedback, use global if step is empty but running.)
+                if (isRunning && !stepContent && thinkingContent) {
+                     // CAUTION: Global content might include previous steps. 
+                     // But with new logic, we append to step. 
+                     // Let's trust step.thinking_content mostly. 
+                     // But if it's empty, maybe we haven't flushed yet.
+                }
+
+                const hasContent = !!stepContent;
+                const isExpandable = hasContent;
+                
+                // Auto-expand if running (streaming), otherwise check state
+                const isExpanded = isRunning || expandedSteps[uniqueKey];
+                
+                // Icons and Colors
+                const icon = isRunning ? '→' : '✓';
+                const iconColor = isRunning ? '#888' : '#10a37f';
+                const textColor = '#ececf1'; // Standard text color
+                
+                // Display text logic
+                const displayText = (step.status === 'complete' && result) ? result : label;
+                
+                return (
+                    <View key={uniqueKey} style={styles.stepContainer}>
+                        <TouchableOpacity 
+                            onPress={() => isExpandable && toggleExpand(uniqueKey)}
+                            activeOpacity={isExpandable ? 0.7 : 1}
+                            style={styles.stepHeader}
+                            disabled={!isExpandable || isRunning} // Disable toggle while running (always shown)
+                        >
+                            <Text style={styles.thinkingStep}>
+                                <Text style={{ color: iconColor }}>{icon}</Text>
+                                {' '}{displayText}
+                                {isRunning && <AnimatedDots />}
                             </Text>
-                        );
-                    })}
-                </View>
-            )}
+                        </TouchableOpacity>
+                        
+                        {/* Expanded Content */}
+                        {isExpandable && isExpanded && (
+                            <View style={styles.expandedThinking}>
+                                <Text style={styles.thinkingContentText}>{stepContent}</Text>
+                            </View>
+                        )}
+                    </View>
+                );
+            })}
         </View>
     );
 };
+
 
 export const MessageBubble = ({ item }) => {
     const { width } = useWindowDimensions();
@@ -323,10 +403,11 @@ export const MessageBubble = ({ item }) => {
             ) : (
                 // Bot message - full width, no bubble
                 <View style={[styles.botContainer, { maxWidth: Math.min(768, width - 32) }]}>
-                    {/* Expandable thinking summary */}
-                    <ExpandableThinking trace={item.trace} />
-
-                    {/* Image */}
+                    {/* Thinking Trace (Top of bubble) */}
+                    <ThinkingTrace 
+                        trace={item.trace}
+                        thinkingContent={item.thinkingContent}
+                    />                    {/* Image */}
                     {primaryImageSource && (
                         <View style={styles.imageContainer}>
                             <Image source={{ uri: primaryImageSource.preview_url }} style={styles.responseImage} />
@@ -391,8 +472,12 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
 
-    collapsedThinking: {
+    thinkingAndActionsContainer: {
         marginBottom: 8,
+    },
+
+    collapsedThinking: {
+        marginBottom: 4,
     },
 
     collapsedThinkingText: {
@@ -416,6 +501,21 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#888',
         lineHeight: 20,
+    },
+
+    stepContainer: {
+        marginBottom: 2,
+    },
+
+    stepHeader: {
+        paddingVertical: 2,
+    },
+
+    thinkingContentText: {
+        fontSize: 13,
+        color: '#999',
+        lineHeight: 20,
+        fontStyle: 'italic',
     },
 
     sourcePill: {

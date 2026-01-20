@@ -110,6 +110,37 @@ const ThinkingBubble = () => (
 );
 
 // Blinking cursor component for typewriter effect
+// WhatsApp-style animated typing dots
+const TypingDots = () => {
+    const [dots, setDots] = React.useState([0.4, 0.4, 0.4]);
+    const animationRef = React.useRef(null);
+    
+    React.useEffect(() => {
+        let frame = 0;
+        const animate = () => {
+            frame++;
+            const phase = (frame / 10) % 3;
+            setDots([
+                phase < 1 ? 1 : 0.4,
+                phase >= 1 && phase < 2 ? 1 : 0.4,
+                phase >= 2 ? 1 : 0.4,
+            ]);
+            animationRef.current = requestAnimationFrame(animate);
+        };
+        animationRef.current = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(animationRef.current);
+    }, []);
+    
+    return (
+        <View style={{ flexDirection: 'row', marginLeft: 4 }}>
+            {dots.map((opacity, i) => (
+                <Text key={i} style={[styles.typingDot, { opacity }]}>•</Text>
+            ))}
+        </View>
+    );
+};
+
+// Legacy blinking cursor (kept for backward compatibility)
 const BlinkingCursor = () => {
     const [visible, setVisible] = React.useState(true);
     
@@ -125,117 +156,17 @@ const BlinkingCursor = () => {
     );
 };
 
-// Progressive Thinking + Streaming Bubble
-// Delayed reveal: show thinking only if response takes >1s
-const THINKING_THRESHOLD_MS = 1000; // 1 second threshold
-
-const StreamingBubble = ({ performanceSteps, streamingContent, isStreaming, requestStartTime, firstResponseTime }) => {
-    const hasContent = streamingContent && streamingContent.length > 0;
-    
-    // Filter out fast steps (< 100ms)
-    const visibleSteps = performanceSteps
-        ? performanceSteps.filter(step => !step.duration_ms || step.duration_ms >= 100)
-        : [];
-    const hasTraceSteps = visibleSteps.length > 0;
-    
-    // Track elapsed time and threshold state
-    const [thresholdExceeded, setThresholdExceeded] = React.useState(false);
-    
-    React.useEffect(() => {
-        if (requestStartTime > 0 && !hasContent && !thresholdExceeded) {
-            // Check immediately
-            if (Date.now() - requestStartTime > THINKING_THRESHOLD_MS) {
-                setThresholdExceeded(true);
-                return;
-            }
-            // Set timer for threshold
-            const remaining = THINKING_THRESHOLD_MS - (Date.now() - requestStartTime);
-            const timer = setTimeout(() => {
-                setThresholdExceeded(true);
-            }, Math.max(0, remaining));
-            return () => clearTimeout(timer);
-        }
-    }, [requestStartTime, hasContent, thresholdExceeded]);
-    
-    // Reset threshold when new request starts
-    React.useEffect(() => {
-        if (requestStartTime > 0) {
-            setThresholdExceeded(Date.now() - requestStartTime > THINKING_THRESHOLD_MS);
-        }
-    }, [requestStartTime]);
-    
-    // Calculate duration for display
-    const totalMs = hasTraceSteps 
-        ? visibleSteps.reduce((sum, step) => sum + (step.duration_ms || 0), 0)
-        : (Date.now() - requestStartTime);
-    const durationSec = ((totalMs || 0) / 1000).toFixed(1);
-    
-    // Show thinking section if: threshold exceeded OR we have trace steps (response > 1s)
-    const shouldShowThinking = thresholdExceeded || (firstResponseTime > 0 && (firstResponseTime - requestStartTime) > THINKING_THRESHOLD_MS);
-    
-    // Check if still processing (last step not complete)
-    const isProcessing = hasTraceSteps && 
-        visibleSteps[visibleSteps.length - 1]?.status !== 'complete';
-    
-    return (
-        <View style={styles.streamingContainer}>
-            {/* Show thinking trace while waiting (no content yet) */}
-            {shouldShowThinking && !hasContent && (
-                <View style={styles.liveTraceContainer}>
-                    <Text style={styles.liveTraceHeader}>
-                        💭 Thinking... ({durationSec}s)
-                    </Text>
-                    {hasTraceSteps ? (
-                        <View style={styles.liveTraceSteps}>
-                            {visibleSteps.map((step, i) => {
-                                const stepLabel = step.metadata?.label || step.step || 'Processing';
-                                const stepDuration = step.duration_ms ? ` (${(step.duration_ms / 1000).toFixed(1)}s)` : '';
-                                const isComplete = step.status === 'complete';
-                                const isLast = i === visibleSteps.length - 1;
-                                return (
-                                    <View key={i} style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                        <Text style={styles.liveTraceStep}>
-                                            {isComplete ? '✓' : '→'} {stepLabel}{stepDuration}
-                                        </Text>
-                                        {isLast && !isComplete && <BlinkingCursor />}
-                                    </View>
-                                );
-                            })}
-                        </View>
-                    ) : (
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 4 }}>
-                            <Text style={styles.liveTraceStep}>→ Processing</Text>
-                            <BlinkingCursor />
-                        </View>
-                    )}
-                </View>
-            )}
-            
-            {/* Initial cursor - shown before 1s threshold and no content */}
-            {!shouldShowThinking && !hasContent && (
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <BlinkingCursor />
-                </View>
-            )}
-            
-            {/* Show collapsed thinking summary + response when streaming */}
-            {hasContent && shouldShowThinking && (
-                <Text style={styles.liveTraceHeader}>
-                    💭 Thought for {durationSec}s
-                </Text>
-            )}
-            
-            {/* Streaming response content */}
-            {hasContent && (
-                <View style={styles.streamingContent}>
-                    <Markdown style={streamMarkdownStyles}>
-                        {streamingContent + (isStreaming ? '▊' : '')}
-                    </Markdown>
-                </View>
-            )}
-        </View>
-    );
+// Escape angle brackets that aren't part of actual HTML tags for markdown rendering
+const escapeHtmlForMarkdown = (text) => {
+    if (!text) return '';
+    // Replace < that aren't part of HTML tags with &lt;
+    return text.replace(/<(?![a-zA-Z\/!])/g, '&lt;');
 };
+
+// Progressive Thinking + Streaming Bubble - Simple Flow
+// 1. "Understanding request" → 2. Thinking tokens below → 3. "Thought for Xs" (collapsed) → 4. Tool actions → 5. Response
+
+
 
 
 export default function App() {
@@ -541,12 +472,15 @@ export default function App() {
                                     }}
                                     ListFooterComponent={
                                         isLoading ? (
-                                            <StreamingBubble 
-                                                performanceSteps={performanceSteps}
-                                                streamingContent={streamingContent}
-                                                isStreaming={isStreaming}
-                                                requestStartTime={requestStartTime}
-                                                firstResponseTime={firstResponseTime}
+                                            <MessageBubble 
+                                                item={{
+                                                    id: 'streaming',
+                                                    sender: 'chaetra',
+                                                    text: streamingContent,
+                                                    trace: performanceSteps,
+                                                    thinkingContent: thinkingContent,
+                                                    sources: [] // Sources come at the end
+                                                }}
                                             />
                                         ) : null
                                     }
@@ -704,35 +638,94 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 
-    // Live trace during loading (matches MessageBubble styling)
-    liveTraceContainer: {
+    // Understanding phase - initial state
+    understandingPhase: {
+        marginBottom: 8,
+    },
+
+    understandingLabel: {
+        fontSize: 13,
+        color: '#888',
+        fontWeight: '500',
         marginBottom: 4,
     },
 
-    liveTraceHeader: {
-        fontSize: 12,
-        color: '#b4b4b4',
-        marginBottom: 4,
-    },
-
-    liveTraceSteps: {
-        paddingLeft: 8,
+    thinkingTokensBox: {
+        paddingLeft: 12,
         borderLeftWidth: 2,
         borderLeftColor: '#444',
+        marginTop: 4,
     },
 
-    liveTraceStep: {
-        fontSize: 12,
+    thinkingTokens: {
+        fontSize: 13,
+        color: '#999',
+        lineHeight: 20,
+    },
+
+    thoughtSummary: {
+        fontSize: 13,
+        color: '#666',
+        marginBottom: 4,
+    },
+
+    // Cursor-style: Action steps
+    actionStep: {
+        marginVertical: 2,
+    },
+
+    actionRunning: {
+        fontSize: 13,
         color: '#888',
         lineHeight: 20,
     },
 
+    actionComplete: {
+        fontSize: 13,
+        color: '#10a37f',
+        lineHeight: 20,
+    },
+
+    arrowMark: {
+        color: '#888',
+        marginRight: 4,
+    },
+
+    tickMark: {
+        color: '#10a37f',
+        marginRight: 4,
+    },
+    
+    // Step container
+    stepContainer: {
+        marginBottom: 4,
+    },
+    
+    // Expand icon for clickable thinking
+    expandIcon: {
+        color: '#666',
+        fontSize: 10,
+        marginLeft: 4,
+    },
+
+    // Response content
+    responseContent: {
+        marginTop: 8,
+    },
+
     // Blinking cursor for typewriter effect
     blinkingCursor: {
-        color: '#ffffff',
+        color: '#10a37f',
         fontSize: 14,
         fontWeight: '600',
         marginLeft: 2,
+    },
+    
+    // WhatsApp-style typing dots
+    typingDot: {
+        color: '#10a37f',
+        fontSize: 10,
+        marginHorizontal: 1,
     },
 
     traceWrapper: {
