@@ -21,6 +21,7 @@ export interface PerformanceStep {
     elapsed_ms?: number;
     metadata?: any;
     thinking_content?: string;
+    parent_step_id?: string;  // DD-016: For nested step visualization
 }
 
 export interface ToolStep {
@@ -188,12 +189,20 @@ export const useCognitiveTraceSocket = () => {
                 
             case 'step_start':
                 // Tool execution starting - update performanceSteps for UI display
-                const stepId = data?.step || 'unknown';
+                const stepName = data?.step || 'unknown';
+                const stepUuid = data?.step_id;  // DD-017: Unique step UUID
+                const parentStepId = data?.parent_step_id;  // DD-017: Parent step UUID
                 const newStep: PerformanceStep = {
-                    step: stepId,
+                    step: stepName,
                     status: 'start',
                     duration_ms: undefined,
-                    metadata: { label: data?.label || data?.step, icon: data?.icon, seq: seq }
+                    metadata: { 
+                        label: data?.label || data?.step, 
+                        icon: data?.icon, 
+                        seq: seq,
+                        step_id: stepUuid  // DD-017: Store UUID for matching
+                    },
+                    parent_step_id: parentStepId,  // DD-017: Parent UUID for nesting
                 };
                 setPerformanceSteps(prev => {
                     // DD-015: Use seq for deduplication - allow multiple instances of same step type
@@ -215,13 +224,20 @@ export const useCognitiveTraceSocket = () => {
                 
             case 'step_end':
                 // Tool execution complete - update performanceSteps in place
-                // DD-015: Match only the MOST RECENT unfinished step of this type
-                const stepName = data?.step;
+                // DD-017: Match by step_id UUID when available, fallback to step name
+                const endStepId = data?.step_id;
+                const endStepName = data?.step;
                 setPerformanceSteps(prev => {
-                    // Find the index of the last 'start' step with this name
                     let targetIndex = -1;
                     for (let i = prev.length - 1; i >= 0; i--) {
-                        if (prev[i].step === stepName && prev[i].status === 'start') {
+                        const stepMeta = prev[i].metadata;
+                        // DD-017: Prefer matching by UUID
+                        if (endStepId && stepMeta?.step_id === endStepId && prev[i].status === 'start') {
+                            targetIndex = i;
+                            break;
+                        }
+                        // Fallback: match by step name
+                        if (!endStepId && prev[i].step === endStepName && prev[i].status === 'start') {
                             targetIndex = i;
                             break;
                         }
@@ -247,7 +263,7 @@ export const useCognitiveTraceSocket = () => {
                 setToolSteps(prev => {
                     let targetIndex = -1;
                     for (let i = prev.length - 1; i >= 0; i--) {
-                        if (prev[i].tool === stepName && prev[i].status === 'running') {
+                        if (prev[i].tool === endStepName && prev[i].status === 'running') {
                             targetIndex = i;
                             break;
                         }

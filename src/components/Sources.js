@@ -168,7 +168,7 @@ const STEP_LABELS = {
     'graph_execution': 'Thinking & Generating',
 };
 
-// --- Trace List (thinking steps) ---
+// --- Trace List (thinking steps with DD-016 nested support) ---
 export const TraceList = ({ steps }) => {
     if (!steps || steps.length === 0) return null;
 
@@ -180,11 +180,14 @@ export const TraceList = ({ steps }) => {
                 const message = (step.metadata && step.metadata.label) || step.message || STEP_LABELS[step.step] || step.step || 'Unknown Step';
                 // Only show duration if complete (or if just trace step)
                 const duration = step.duration_ms || step.elapsed_ms;
+                // DD-016: Check for parent_step_id to determine if this is a nested step
+                const isNested = !!step.parent_step_id;
+                const status = step.status;
 
                 return (
-                    <View key={key} style={styles.traceRow}>
-                        <View style={styles.traceDot} />
-                        <Text style={styles.traceText} numberOfLines={2}>
+                    <View key={key} style={[styles.traceRow, isNested && styles.traceRowNested]}>
+                        <View style={[styles.traceDot, status === 'complete' && styles.traceDotComplete]} />
+                        <Text style={[styles.traceText, isNested && styles.traceTextNested]} numberOfLines={2}>
                             {message}
                         </Text>
                         {duration != null && (
@@ -557,6 +560,17 @@ const styles = StyleSheet.create({
         color: COLORS.textDim,
         fontSize: 10,
         marginLeft: 8,
+    },
+    // DD-016: Nested step styles for parent-child hierarchy
+    traceRowNested: {
+        marginLeft: 16,  // Indent nested steps
+        opacity: 0.9,
+    },
+    traceTextNested: {
+        fontSize: 11,  // Slightly smaller for child steps
+    },
+    traceDotComplete: {
+        backgroundColor: '#4ade80',  // Green for completed steps
     },
 
     // --- Footer (no separator line) ---
